@@ -132,6 +132,8 @@ async def delete(ctx, amount=100):
             message = await client.say('Incorrect formatting: `-delete <integer>`. Note however that you can not delete less than 2 or more than 100 messages nor can the messages be over 2 weeks old.')
             await asyncio.sleep(5)
             await client.delete_message(message)
+    else:
+        await client.say("You lack permission to use this command")
 
 @client.command(pass_context=True)
 async def logout(ctx):
