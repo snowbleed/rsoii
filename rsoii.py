@@ -7,7 +7,7 @@ import time
 TOKEN = 'NTE4NTUzMDU2NDg1MzEwNjMy.DuSdpw.jihEt-Ge5QXaU8LVKiLpHhzNg4c'
 
 client = commands.Bot(command_prefix = '-')
-status = ['Made by snowbleed#7824','Used for the MSGB','Merry Christmas, Marines!']
+status = ['Used for Marine Security Guard Battalion','Merry Christmas, Marines!']
 needsConfirmation = False
 announcementConfirm = False
 
@@ -44,7 +44,7 @@ async def displayembed():
 
 @client.command()
 async def cmds():
-    await client.say("**-cmds**: Display a list of commands.\n**-ping**: Check if the bot is responding quickly\n**-delete**: Deletes entered amount of messages. Must be more than 2 and less than 100 messages and the messages can not be over 2 weeks old. Format: `-delete <integer>`\n**-announce**: Make an announcement. Format: `-announce <text>`\n**-training**: Announce a training. Format: `-training <mandatory/optional> <placeid>`\n**-deploy**: Announce a sentry deployment. Format: `-deploy <placeid>`")
+    await client.say("CREDIT: snowbleed#7824\n**-cmds**: Display a list of commands.\n**-ping**: Check if the bot is responding quickly\n**-delete**: Deletes entered amount of messages. Must be more than 2 and less than 100 messages and the messages can not be over 2 weeks old. Format: `-delete <integer>`\n**-announce**: Make an announcement. Format: `-announce <text>`\n**-training**: Announce a training. Format: `-training <mandatory/optional> <placeid>`\n**-deploy**: Announce a sentry deployment. Format: `-deploy <placeid>`")
 
 @client.command()
 async def ping():
