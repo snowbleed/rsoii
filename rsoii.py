@@ -7,7 +7,7 @@ import time
 TOKEN = 'NTE4NTUzMDU2NDg1MzEwNjMy.DuSdpw.jihEt-Ge5QXaU8LVKiLpHhzNg4c'
 
 client = commands.Bot(command_prefix = '-')
-status = ['Used for Marine Security Guard Battalion','Merry Christmas, Marines!']
+status = ['Merry Christmas, Marines!']
 needsConfirmation = False
 announcementConfirm = False
 
