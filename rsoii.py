@@ -94,11 +94,11 @@ async def training(ctx, arg1, arg2):
 
 @client.command()
 async def snow():
-    client.say("bleed")
+    await client.say("bleed")
 
 @client.command()
 async def frost():
-    client.say("bleed")
+    await client.say("bleed")
 
 @client.command(pass_context=True)
 async def deploy(ctx, arg1):
