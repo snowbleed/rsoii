@@ -118,19 +118,20 @@ async def deploy(ctx, arg1):
 
 @client.command(pass_context=True)
 async def delete(ctx, amount=100):
-    if ((amount > 1) and (amount < 100)):
-        channel = ctx.message.channel
-        messages = []
-        async for message in client.logs_from(channel, limit=int(amount) + 1):
-            messages.append(message)
-        await client.delete_messages(messages)
-        message = await client.say(str(amount) + " messages were deleted")
-        await asyncio.sleep(5)
-        await client.delete_message(message)
-    else:
-        message = await client.say('Incorrect formatting: `-delete <integer>`. Note however that you can not delete less than 2 or more than 100 messages nor can the messages be over 2 weeks old.')
-        await asyncio.sleep(5)
-        await client.delete_message(message)
+    if (('Commanding Officer') or ('Executive Officer') or ('Sentry In Charge')) in [role.name for role in ctx.message.author.roles]:
+        if ((amount > 1) and (amount < 100)):
+            channel = ctx.message.channel
+            messages = []
+            async for message in client.logs_from(channel, limit=int(amount) + 1):
+                messages.append(message)
+            await client.delete_messages(messages)
+            message = await client.say(str(amount) + " messages were deleted")
+            await asyncio.sleep(5)
+            await client.delete_message(message)
+        else:
+            message = await client.say('Incorrect formatting: `-delete <integer>`. Note however that you can not delete less than 2 or more than 100 messages nor can the messages be over 2 weeks old.')
+            await asyncio.sleep(5)
+            await client.delete_message(message)
 
 @client.command(pass_context=True)
 async def logout(ctx):
