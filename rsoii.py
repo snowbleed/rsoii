@@ -56,7 +56,7 @@ async def grr():
     
 @client.command(pass_context=True)
 async def announce(ctx, *args):
-    if {'Commanding Officer', 'Executive Officer', 'Sentry In Charge' } & {role.name for role in ctx.message.author.roles}:
+    if {'Commanding Officer', 'Executive Officer', 'Sentry In Charge'} & {role.name for role in ctx.message.author.roles}:
         output = ''
         for word in args:
             output += word
@@ -72,7 +72,7 @@ async def announce(ctx, *args):
 @client.command(pass_context=True)
 async def training(ctx, arg1, arg2):
     author = ctx.message.author.mention
-    if (('Commanding Officer') or ('Executive Officer') or ('Sentry In Charge')) in [role.name for role in ctx.message.author.roles]:
+    if {'Commanding Officer', 'Executive Officer', 'Sentry In Charge'} & {role.name for role in ctx.message.author.roles}:
         if arg1 == 'mandatory':
             output = '@everyone MANDATORY TRAINING AT https://www.roblox.com/games/' + arg2 + '/-- HOSTED BY ' + author
             channel = '518286982145900575'
@@ -106,7 +106,7 @@ async def frost():
 
 @client.command(pass_context=True)
 async def deploy(ctx, arg1):
-    if (('Commanding Officer') or ('Executive Officer') or ('Sentry In Charge')) in [role.name for role in ctx.message.author.roles]:
+    if {'Commanding Officer', 'Executive Officer', 'Sentry In Charge'} & {role.name for role in ctx.message.author.roles}:
         output = "**NOTICE:** A sentry/protection deployment order has been issued. All sentries are ordered to respond to https://www.roblox.com/games/" + arg1 + "/--  immediately.  @everyone"
         await client.say('You are about to announce a deployment, if you are sure please say -confirm')
         msg = await client.wait_for_message(author=ctx.message.author, content='-confirm')
@@ -118,7 +118,7 @@ async def deploy(ctx, arg1):
 
 @client.command(pass_context=True)
 async def delete(ctx, amount=100):
-    if (('Commanding Officer') or ('Executive Officer') or ('Sentry In Charge')) in [role.name for role in ctx.message.author.roles]:
+    if {'Commanding Officer', 'Executive Officer', 'Sentry In Charge'} & {role.name for role in ctx.message.author.roles}:
         if ((amount > 1) and (amount < 100)):
             channel = ctx.message.channel
             messages = []
