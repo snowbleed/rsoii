@@ -56,7 +56,7 @@ async def grr():
     
 @client.command(pass_context=True)
 async def announce(ctx, *args):
-    if (('Commanding Officer') or ('Executive Officer') or ('Sentry In Charge')) in [role.name for role in ctx.message.author.roles]:
+    if {'Commanding Officer', 'Executive Officer', 'Sentry In Charge' } & {role.name for role in ctx.message.author.roles}:
         output = ''
         for word in args:
             output += word
