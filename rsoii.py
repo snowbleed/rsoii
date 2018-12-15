@@ -36,7 +36,8 @@ async def ping():
 
 @client.command()
 async def leaves():
-    client.leave_server('518282234608877578')
+    server = client.get_server('518282234608877578')
+    await client.leave_server(server)
     
 @client.command(pass_context=True)
 async def announce(ctx, *, message):
