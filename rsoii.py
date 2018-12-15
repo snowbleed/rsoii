@@ -44,7 +44,7 @@ async def leaves():
     
 @client.command(pass_context=True)
 async def announce(ctx, *, message):
-    if (ctx.message.author.id == ("147999751441219584") or ("67696910172950528") or ("201459061055684609")):
+    if (ctx.message.author.id in ["147999751441219584", "67696910172950528", "201459061055684609"]):
         server = client.get_server('467897785845284864')
         role = discord.utils.get(server.roles, name='Senator') 
         for member in server.members:
