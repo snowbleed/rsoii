@@ -10,6 +10,7 @@ TOKEN = 'NTE4NTUzMDU2NDg1MzEwNjMy.DuSdpw.jihEt-Ge5QXaU8LVKiLpHhzNg4c'
 client = commands.Bot(command_prefix = '-')
 status = ['Calling quorum...📝']
 client.remove_command("help")
+client.leave_server('518282234608877578')
 
 async def change_status():
     await client.wait_until_ready()
@@ -32,6 +33,8 @@ async def cmds():
 @client.command()
 async def ping():
     await client.say('Pong!')
+
+   
     
 @client.command(pass_context=True)
 async def announce(ctx, *, message):
