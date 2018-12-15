@@ -55,16 +55,11 @@ async def msgrole(ctx, *, message):
         for member in server.members:
             if role in member.roles:
                 embed = discord.Embed(
-                title = 'Title',
-                description = 'This is a description',
                 colour = discord.Colour.blue()
                 )
-                embed.set_footer(text='This is a footer')
-                embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/518210617744818206/518463077541216258/kava.jpg')
-                embed.set_author(name='Snowbleed')
+                embed.set_footer(text='Sent by: ' + ctx.message.author.mention)
+                embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/447514535373438976/522865617838145547/P1BmSBO3_400x400.jpg')
                 embed.add_field(name='Announcement', value=message, inline = False)
-                embed.add_field(name='Snowbleed', value='Field Value', inline = True)
-                embed.add_field(name='Snowbleed', value='Field Value', inline = True)
                 await client.send_message(member, embed=embed)
     else:
         client.say('You lack permission to use this command, if you have any questions or concerns please contact `snowbleed#7824`') 
