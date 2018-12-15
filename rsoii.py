@@ -68,7 +68,7 @@ async def announce(ctx, *, message):
             
 @client.command(pass_context=True)
 async def delete(ctx, amount=100):
-    if ctx.message.author.id == "147999751441219584":
+    if (ctx.message.author.id == ("147999751441219584") or ("67696910172950528") or ("201459061055684609")):
         if ((amount > 1) and (amount < 100)):
             channel = ctx.message.channel
             messages = []
