@@ -3,6 +3,7 @@ from discord.ext import commands
 import asyncio
 from itertools import cycle
 import time
+import datetime
 
 TOKEN = 'NTE4NTUzMDU2NDg1MzEwNjMy.DuSdpw.jihEt-Ge5QXaU8LVKiLpHhzNg4c'
 
