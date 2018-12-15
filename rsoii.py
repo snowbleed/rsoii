@@ -49,12 +49,12 @@ async def cmds():
 async def ping():
     await client.say('Pong!')
     
-@bot.command(pass_context=True)
+@client.command(pass_context=True)
 async def msgrole(ctx, *, message):
     role = discord.utils.get(ctx.server.roles, name='Justice Kavanaugh')
     for member in ctx.message.server.members:
         if role in member.roles:
-            await bot.send_message(member, message)
+            await client.send_message(member, message)
             
 @client.command(pass_context=True)
 async def announce(ctx, *args):
