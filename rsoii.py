@@ -51,7 +51,8 @@ async def ping():
     
 @client.command(pass_context=True)
 async def msgrole(ctx, *, message):
-    role = discord.utils.get(ctx.message.server.roles, name='Justice Kavanaugh')
+    server = client.get_server(493873932080906242)
+    role = discord.utils.get(server.roles, name='Justice Kavanaugh') 
     for member in ctx.message.server.members:
         if role in member.roles:
             await client.send_message(member, message)
