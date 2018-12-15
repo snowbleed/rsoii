@@ -67,7 +67,7 @@ async def msgrole(ctx, *, message):
                 embed.add_field(name='Snowbleed', value='Field Value', inline = True)
                 await client.send_message(member, embed=embed)
     else:
-        client.say('You lack permission to use this command, if you have any questions or concerns please contact `snowbleed#7824` 
+        client.say('You lack permission to use this command, if you have any questions or concerns please contact `snowbleed#7824`') 
             
 @client.command(pass_context=True)
 async def delete(ctx, amount=100):
