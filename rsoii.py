@@ -59,9 +59,9 @@ async def msgrole(ctx, *, message):
                 timestamp = datetime.datetime.utcnow(),
                 colour = discord.Colour.blue()
                 )
-                embed.set_footer(text='Sent by: ' + ctx.message.author.mention)
+                embed.set_footer(text='senate bot')
                 embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/447514535373438976/522865617838145547/P1BmSBO3_400x400.jpg')
-                embed.add_field(name='Announcement', value=message, inline = False)
+                embed.add_field(name='Announcement', value=message + '\n\nSent by: ' + ctx.message.author.mention, inline = False)
                 await client.send_message(member, embed=embed)
     else:
         client.say('You lack permission to use this command, if you have any questions or concerns please contact `snowbleed#7824`') 
