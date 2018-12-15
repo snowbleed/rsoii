@@ -8,8 +8,6 @@ TOKEN = 'NTE4NTUzMDU2NDg1MzEwNjMy.DuSdpw.jihEt-Ge5QXaU8LVKiLpHhzNg4c'
 
 client = commands.Bot(command_prefix = '-')
 status = ['Calling quorum...📝']
-needsConfirmation = False
-announcementConfirm = False
 
 async def change_status():
     await client.wait_until_ready()
@@ -51,57 +49,29 @@ async def ping():
     
 @client.command(pass_context=True)
 async def msgrole(ctx, *, message):
-    server = client.get_server('493873932080906242')
-    role = discord.utils.get(server.roles, name='Justice Kavanaugh') 
-    for member in server.members:
-        if role in member.roles:
-            await client.send_message(member, message)
+    if ctx.message.author.id == "147999751441219584":
+        server = client.get_server('493873932080906242')
+        role = discord.utils.get(server.roles, name='Justice Kavanaugh') 
+        for member in server.members:
+            if role in member.roles:
+                embed = discord.Embed(
+                title = 'Title',
+                description = 'This is a description',
+                colour = discord.Colour.blue()
+                )
+                embed.set_footer(text='This is a footer')
+                embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/518210617744818206/518463077541216258/kava.jpg')
+                embed.set_author(name='Snowbleed')
+                embed.add_field(name='Announcement', value=message, inline = False)
+                embed.add_field(name='Snowbleed', value='Field Value', inline = True)
+                embed.add_field(name='Snowbleed', value='Field Value', inline = True)
+                await client.send_message(member, embed=embed)
+    else:
+        client.say('You lack permission to use this command, if you have any questions or concerns please contact `snowbleed#7824` 
             
 @client.command(pass_context=True)
-async def announce(ctx, *args):
-    if {'Commanding Officer', 'Executive Officer', 'Sentry In Charge'} & {role.name for role in ctx.message.author.roles}:
-        output = ''
-        for word in args:
-            output += word
-            output += ' '
-        announcementConfirm = True
-        if announcementConfirm == True:
-            await client.say('You are about to make an announcement, if you are sure please say -confirm')
-            msg = await client.wait_for_message(author=ctx.message.author, content='-confirm')
-            await client.send_message(client.get_channel('518286982145900575'), "@everyone " + output)
-            announcementConfirm = False
-    else:
-        await client.say('You lack permission to use this command')
-@client.command(pass_context=True)
-async def training(ctx, arg1, arg2):
-    author = ctx.message.author.mention
-    if {'Commanding Officer', 'Executive Officer', 'Sentry In Charge'} & {role.name for role in ctx.message.author.roles}:
-        if arg1 == 'mandatory':
-            output = '@everyone MANDATORY TRAINING AT https://www.roblox.com/games/' + arg2 + '/-- HOSTED BY ' + author
-            channel = '518286982145900575'
-            needsConfirmation = True
-        elif arg1 == 'optional':
-            output = '@everyone OPTIONAL TRAINING AT https://www.roblox.com/games/' + arg2 + '/-- HOSTED BY ' + author
-            channel = '518286982145900575'
-            needsConfirmation = True
-        else:
-            output = 'Incorrect formatting: `-training <mandatory/optional> <placeid>`'
-            channel = str(ctx.message.channel.id)
-            needsConfirmation = False
-        if needsConfirmation == True:
-            await client.say('You are about to announce a training, if you are sure please say -confirm')
-            msg = await client.wait_for_message(author=ctx.message.author, content='-confirm')
-            await client.send_message(client.get_channel(channel), output)
-            await client.say("Training announced.")
-            needsConfirmation = False
-        else:
-            await client.say(output)
-    else:
-        await client.say('You lack permission to use this command')
-
-@client.command(pass_context=True)
 async def delete(ctx, amount=100):
-    if {'Commanding Officer', 'Executive Officer', 'Sentry In Charge'} & {role.name for role in ctx.message.author.roles}:
+    if ctx.message.author.id == "147999751441219584":
         if ((amount > 1) and (amount < 100)):
             channel = ctx.message.channel
             messages = []
