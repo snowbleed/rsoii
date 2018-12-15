@@ -49,10 +49,10 @@ async def ping():
     await client.say('Pong!')
     
 @client.command(pass_context=True)
-async def msgrole(ctx, *, message):
-    if ctx.message.author.id == "147999751441219584":
-        server = client.get_server('493873932080906242')
-        role = discord.utils.get(server.roles, name='Justice Kavanaugh') 
+async def announce(ctx, *, message):
+    if (ctx.message.author.id == ("147999751441219584") or ("67696910172950528") or ("201459061055684609")):
+        server = client.get_server('467897785845284864')
+        role = discord.utils.get(server.roles, name='Senator') 
         for member in server.members:
             if role in member.roles:
                 embed = discord.Embed(
