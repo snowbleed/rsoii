@@ -55,7 +55,7 @@ async def msgrole(ctx, *, message):
         for member in server.members:
             if role in member.roles:
                 embed = discord.Embed(
-                timestamp = datetime.datetime
+                timestamp = datetime.datetime,
                 colour = discord.Colour.blue()
                 )
                 embed.set_footer(text='Sent by: ' + ctx.message.author.mention)
