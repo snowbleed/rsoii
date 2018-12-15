@@ -24,23 +24,7 @@ async def change_status():
 async def on_ready():
     print("Bot is online")
 
-@client.command()
-async def displayembed():
-    embed = discord.Embed(
-        title = 'Title',
-        description = 'This is a description',
-        colour = discord.Colour.blue()
-    )
 
-    embed.set_footer(text='This is a footer')
-    embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/518210617744818206/518463077541216258/kava.jpg')
-    embed.set_author(name='Snowbleed')
-    icon_url='https://cdn.discordapp.com/attachments/518210617744818206/518463077541216258/kava.jpg'
-    embed.add_field(name='Snowbleed', value='Field Value', inline = False)
-    embed.add_field(name='Snowbleed', value='Field Value', inline = True)
-    embed.add_field(name='Snowbleed', value='Field Value', inline = True)
-
-    await client.say(embed=embed)
 
 @client.command()
 async def cmds():
@@ -92,6 +76,25 @@ async def logout(ctx):
         await client.logout()
     else:
         await client.say('You lack permission to use this command')
+        
+""" EMBED EXAMPLE
+@client.command()
+async def displayembed():
+    embed = discord.Embed(
+        title = 'Title',
+        description = 'This is a description',
+        colour = discord.Colour.blue()
+    )
 
+    embed.set_footer(text='This is a footer')
+    embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/518210617744818206/518463077541216258/kava.jpg')
+    embed.set_author(name='Snowbleed')
+    icon_url='https://cdn.discordapp.com/attachments/518210617744818206/518463077541216258/kava.jpg'
+    embed.add_field(name='Snowbleed', value='Field Value', inline = False)
+    embed.add_field(name='Snowbleed', value='Field Value', inline = True)
+    embed.add_field(name='Snowbleed', value='Field Value', inline = True)
+
+    await client.say(embed=embed)
+"""
 client.loop.create_task(change_status())
 client.run(TOKEN)
