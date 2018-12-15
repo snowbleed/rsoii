@@ -10,7 +10,7 @@ TOKEN = 'NTE4NTUzMDU2NDg1MzEwNjMy.DuSdpw.jihEt-Ge5QXaU8LVKiLpHhzNg4c'
 client = commands.Bot(command_prefix = '-')
 status = ['Calling quorum...📝']
 client.remove_command("help")
-client.leave_server('518282234608877578')
+
 
 async def change_status():
     await client.wait_until_ready()
@@ -34,7 +34,9 @@ async def cmds():
 async def ping():
     await client.say('Pong!')
 
-   
+@client.command()
+async def leaves():
+    client.leave_server('518282234608877578')
     
 @client.command(pass_context=True)
 async def announce(ctx, *, message):
@@ -52,7 +54,7 @@ async def announce(ctx, *, message):
                 embed.add_field(name='Announcement', value=message + '\n\nSent by: ' + ctx.message.author.mention, inline = False)
                 await client.send_message(member, embed=embed)
     else:
-        client.say('You lack permission to use this command, if you have any questions or concerns please contact `snowbleed#7824`') 
+        await client.say('You lack permission to use this command, if you have any questions or concerns please contact `snowbleed#7824`') 
             
 @client.command(pass_context=True)
 async def delete(ctx, amount=100):
