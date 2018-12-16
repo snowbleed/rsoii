@@ -48,12 +48,18 @@ async def announce(ctx, *, message):
     global authorizedusers
     if (ctx.message.author.id in authorizedusers):
         server = client.get_server('493873932080906242')
-        role = discord.utils.get(server.roles, name='Justice Kavanaugh') 
+        role = discord.utils.get(server.roles, name='Senator') 
+        role1 = discord.utils.get(server.roles, name='Senate Minority Leader')
+        role2 = discord.utils.get(server.roles, name='Senate Majority Leader')
+        role4 = discord.utils.get(server.roles, name='Secretary of the Senate')
+        role5 = discord.utils.get(server.roles, name='Acting PPT')
+        role6 = discord.utils.get(server.roles, name='President Pro-Tempore')
+        role7 = discord.utils.get(server.roles, name='President of the Senate')
         await client.say('You are about to make an announcement, if you are sure please say -confirm')
         msg = await client.wait_for_message(author=ctx.message.author)
         if msg.content == '-confirm':
             for member in server.members:
-                if role in member.roles:
+                if {role1, role2, role3, role4, role5, role6, role7}.union(member.roles):
                     embed = discord.Embed(
                     timestamp = datetime.datetime.utcnow(),
                     colour = discord.Colour.blue()
@@ -70,7 +76,8 @@ async def announce(ctx, *, message):
             
 @client.command(pass_context=True)
 async def delete(ctx, amount=100):
-    if (ctx.message.author.id in ["147999751441219584", "67696910172950528", "201459061055684609"]):
+    global authorizedusers
+    if (ctx.message.author.id in authorizedusers):
         if ((amount > 1) and (amount < 100)):
             channel = ctx.message.channel
             messages = []
