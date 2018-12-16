@@ -47,18 +47,24 @@ async def leaves():
 async def announce(ctx, *, message):
     global authorizedusers
     if (ctx.message.author.id in authorizedusers):
-        server = client.get_server('467897785845284864')
-        role = discord.utils.get(server.roles, name='Senator') 
-        for member in server.members:
-            if role in member.roles:
-                embed = discord.Embed(
-                timestamp = datetime.datetime.utcnow(),
-                colour = discord.Colour.blue()
-                )
-                embed.set_footer(text='senate bot')
-                embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/447514535373438976/522865617838145547/P1BmSBO3_400x400.jpg')
-                embed.add_field(name='Announcement', value=message + '\n\nSent by: ' + ctx.message.author.mention, inline = False)
-                await client.send_message(member, embed=embed)
+        server = client.get_server('493873932080906242')
+        role = discord.utils.get(server.roles, name='Justice Kavanaugh') 
+        await client.say('You are about to make an announcement, if you are sure please say -confirm')
+        msg = await client.wait_for_message(ctx.message.author)
+        if msg.content == 'y':
+            for member in server.members:
+                if role in member.roles:
+                    embed = discord.Embed(
+                    timestamp = datetime.datetime.utcnow(),
+                    colour = discord.Colour.blue()
+                    )
+                    embed.set_footer(text='senate bot')
+                    embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/447514535373438976/522865617838145547/P1BmSBO3_400x400.jpg')
+                    embed.add_field(name='Announcement', value=message + '\n\nSent by: ' + ctx.message.author.mention, inline = False)
+                    await client.send_message(member, embed=embed)
+        else:
+            await client.say("Announcement not sent")
+            return
     else:
         await client.say('You lack permission to use this command, if you have any questions or concerns please contact `snowbleed#7824`') 
             
