@@ -47,7 +47,7 @@ async def leaves():
 async def announce(ctx, *, message):
     global authorizedusers
     if (ctx.message.author.id in authorizedusers):
-        server = client.get_server('493873932080906242')
+        server = client.get_server('467897785845284864')
         role = discord.utils.get(server.roles, name='Senator') 
         role1 = discord.utils.get(server.roles, name='Senate Minority Leader')
         role2 = discord.utils.get(server.roles, name='Senate Majority Leader')
