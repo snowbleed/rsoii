@@ -50,8 +50,8 @@ async def announce(ctx, *, message):
         server = client.get_server('493873932080906242')
         role = discord.utils.get(server.roles, name='Justice Kavanaugh') 
         await client.say('You are about to make an announcement, if you are sure please say -confirm')
-        msg = await client.wait_for_message(ctx.message.author)
-        if msg.content == 'y':
+        msg = await client.wait_for_message(author=ctx.message.author)
+        if msg.content == '-confirm':
             for member in server.members:
                 if role in member.roles:
                     embed = discord.Embed(
