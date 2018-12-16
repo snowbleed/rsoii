@@ -51,15 +51,15 @@ async def announce(ctx, *, message):
         role = discord.utils.get(server.roles, name='Senator') 
         role1 = discord.utils.get(server.roles, name='Senate Minority Leader')
         role2 = discord.utils.get(server.roles, name='Senate Majority Leader')
-        role4 = discord.utils.get(server.roles, name='Secretary of the Senate')
-        role5 = discord.utils.get(server.roles, name='Acting PPT')
-        role6 = discord.utils.get(server.roles, name='President Pro-Tempore')
-        role7 = discord.utils.get(server.roles, name='President of the Senate')
+        role3 = discord.utils.get(server.roles, name='Secretary of the Senate')
+        role4 = discord.utils.get(server.roles, name='Acting PPT')
+        role5 = discord.utils.get(server.roles, name='President Pro-Tempore')
+        role6 = discord.utils.get(server.roles, name='President of the Senate')
         await client.say('You are about to make an announcement, if you are sure please say -confirm')
         msg = await client.wait_for_message(author=ctx.message.author)
         if msg.content == '-confirm':
             for member in server.members:
-                if {role1, role2, role3, role4, role5, role6, role7}.union(member.roles):
+                if {role, role1, role2, role3, role4, role5, role6}.union(member.roles):
                     embed = discord.Embed(
                     timestamp = datetime.datetime.utcnow(),
                     colour = discord.Colour.blue()
