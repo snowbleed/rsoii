@@ -62,16 +62,16 @@ async def bill(ctx, arg):
         await client.send_message(ctx.message.author, "Which committee are you submitting this bill to?\n```Judiciary Committee = 'jega'\nHomeland Security Committee = 'hls'\nArmed Services Committee = 'usm'\nRules and Regulation Committee = 'randr'```")
         committee = await client.wait_for_message(author=ctx.message.author)
         if committee.content == 'jega':
-            committee = "Judiciary Committee"
+            committee = "JUDICIARY COMMITTEE"
             cmtetrello = "q0AQUFqJ"
         elif committee.content == 'hls':
-            committee = "[Homeland Security Committee](https://trello.com/b/GdWLqexD/senate-homeland-security-committee)"
+            committee = "HOMELAND SECURITY COMMITTEE"
             cmtetrello = "GdWLqexD"
         elif committee.content == 'usm':
-            committee = "[Armed Services Committee](https://trello.com/b/VqYyiZK4/senate-armed-services-committee)"
+            committee = "ARMED SERVICES COMMITTEE"
             cmtetrello = "VqYyiZK4"
         elif committee.content == 'randr':
-            committee = "[Rules Committee](https://trello.com/b/g222veai/senate-rules-committee)"
+            committee = "RULES COMMITTEE"
             cmtetrello = "g222veai"
         else:
             await client.send_message(ctx.message.author, "You need to choose a committee! Command has been reset, use `-bill` to resubmit.")
@@ -81,7 +81,7 @@ async def bill(ctx, arg):
         if msg.content == '-confirm':
             embed = discord.Embed(
             title = 'Bill needs to be added to the: ',
-            description = '[' + committee + '](https://trello.com/b/' + cmtetrello + '/cmte)\n\n' + arg + '\nSubmitted by: ' + ctx.message.author.mention,
+            description = '**[' + committee + '](https://trello.com/b/' + cmtetrello + '/cmte)**\n\n' + arg + '\nSubmitted by: ' + ctx.message.author.mention,
             timestamp = datetime.datetime.utcnow(),
             colour = discord.Colour.green()
             )
