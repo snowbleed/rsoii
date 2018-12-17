@@ -68,7 +68,7 @@ async def bill(ctx, arg):
         elif committee.content == 'usm':
             committee = "**[Armed Services Committee](https://trello.com/b/VqYyiZK4/senate-armed-services-committee)**"
         elif committee.content == 'randr':
-            committee = "**[Rules Committee](https://trello.com/b/g222veai/senate-rules-committee)**"
+            committee = "[Rules Committee](https://trello.com/b/g222veai/senate-rules-committee)"
         else:
             await client.send_message(ctx.message.author, "You need to choose a committee! Command has been reset, use `-bill` to resubmit.")
             return
@@ -76,6 +76,8 @@ async def bill(ctx, arg):
         msg = await client.wait_for_message(author=ctx.message.author)
         if msg.content == '-confirm':
             embed = discord.Embed(
+            title = 'Bill needs to be added to the ' + committee,
+            description = arg + '\nSubmitted by: ' + ctx.message.author.mention,
             timestamp = datetime.datetime.utcnow(),
             colour = discord.Colour.green()
             )
