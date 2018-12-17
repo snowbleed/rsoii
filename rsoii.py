@@ -62,6 +62,13 @@ async def bill(ctx, arg):
         await client.send_message(ctx.message.author, "You are about to submit a bill, if you are sure about this please say `-confirm`")
         msg = await client.wait_for_message(author=ctx.message.author)
         if msg.content == '-confirm':
+            embed = discord.Embed(
+            timestamp = datetime.datetime.utcnow(),
+            colour = discord.Colour.green()
+            )
+            embed.set_footer(text='senate bot')
+            embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/447514535373438976/522865617838145547/P1BmSBO3_400x400.jpg')
+            embed.add_field(name='Bill', value=arg + '\nSubmitted by: ' + ctx.message.author.mention, inline = False)
             await client.send_message(secretary, arg)
     else:
         await client.send_message(ctx.message.author, "To submit a bill you need to be a senator, if you have any questions or concerns please contact `snowbleed#7824`")
