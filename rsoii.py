@@ -62,13 +62,13 @@ async def bill(ctx, arg):
         await client.send_message(ctx.message.author, "Which committee are you submitting this bill to?\n```Judiciary Committee = 'jega'\nHomeland Security Committee = 'hls'\nArmed Services Committee = 'usm'\nRules and Regulation Committee = 'randr'```")
         committee = await client.wait_for_message(author=ctx.message.author)
         if committee.content == 'jega':
-            committee = "**Judiciary Committee**"
+            committee = "**[Judiciary Committee](https://trello.com/b/q0AQUFqJ/senate-judiciary-committee)**"
         elif committee.content == 'hls':
-            committee = "**Homeland Security Committee**"
+            committee = "**[Homeland Security Committee](https://trello.com/b/GdWLqexD/senate-homeland-security-committee)**"
         elif committee.content == 'usm':
-            committee = "**Armed Services Committee**"
+            committee = "**[Armed Services Committee](https://trello.com/b/VqYyiZK4/senate-armed-services-committee)**"
         elif committee.content == 'randr':
-            committee = "**Rules Committee**"
+            committee = "**[Rules Committee](https://trello.com/b/g222veai/senate-rules-committee)**"
         else:
             await client.send_message(ctx.message.author, "You need to choose a committee! Command has been reset, use `-bill` to resubmit.")
             return
