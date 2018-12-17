@@ -59,6 +59,19 @@ async def bill(ctx, arg):
     rolelist = [role, role1, role2, role3, role4, role5, role6]
     gotrole = any(elem in rolelist for elem in member.roles)
     if gotrole:
+        await client.send_message(ctx.message.author, "Which committee are you submitting this bill to?\n```Judiciary Committee = 'jega'\nHomeland Security Committee = 'hls'\nArmed Services Committee = 'usm'\nRules and Regulation Committee = 'randr'```")
+        committee = await client.wait_for_message(author=ctx.message.author)
+        if committee.content == 'jega':
+            committee = "Judiciary Committee"
+        elif committee.content == 'hls':
+            committee = "Homeland Security Committee"
+        elif committee.content == 'usm':
+            committee = "Armed Services Committee"
+        elif committee.content == 'randr':
+            committee = "Rules Committee"
+        else:
+            await client.send_message(ctx.message.author, "You need to choose a committee! Command has been reset, use `-bill` to resubmit.")
+            return
         await client.send_message(ctx.message.author, "You are about to submit a bill, if you are sure about this please say `-confirm`")
         msg = await client.wait_for_message(author=ctx.message.author)
         if msg.content == '-confirm':
@@ -68,7 +81,7 @@ async def bill(ctx, arg):
             )
             embed.set_footer(text='senate bot')
             embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/447514535373438976/522865617838145547/P1BmSBO3_400x400.jpg')
-            embed.add_field(name='Bill', value=arg + '\nSubmitted by: ' + ctx.message.author.mention, inline = False)
+            embed.add_field(name='Bill needs to be added to the ' + "**"committee"**", value=arg + '\nSubmitted by: ' + ctx.message.author.mention, inline = False)
             await client.send_message(secretary, embed=embed)
     else:
         await client.send_message(ctx.message.author, "To submit a bill you need to be a senator, if you have any questions or concerns please contact `snowbleed#7824`")
