@@ -10,7 +10,7 @@ TOKEN = 'NTE4NTUzMDU2NDg1MzEwNjMy.DuSdpw.jihEt-Ge5QXaU8LVKiLpHhzNg4c'
 client = commands.Bot(command_prefix = '-')
 status = ['Calling quorum...📝']
 authorizedusers = ["147999751441219584", "67696910172950528", "151086529173913601"]
-                  # 1479 = Snowbleed      6769 = Sam4219       1510 = AdamStratton
+#                   1479 = Snowbleed      6769 = Sam4219       1510 = AdamStratton
 client.remove_command("help")
 
 
@@ -27,6 +27,14 @@ async def change_status():
 async def on_ready():
     print("Bot is online")
 
+@client.event
+async def on_member_join(member):
+    if member.server.id == '524368324897800232':
+        role = discord.utils.get(member.server.roles, name='Americans')
+        await client.add_roles(member, role)
+    else:
+        print("User joined any other fucking discord")
+ 
 @client.command()
 async def cmds():
     embed = discord.Embed(
