@@ -109,20 +109,19 @@ async def announce(ctx, *, message):
         await client.say('You are about to make an announcement, if you are sure please say -confirm')
         msg = await client.wait_for_message(author=ctx.message.author)
         if msg.content == '-confirm':
+            embed = discord.Embed(
+            timestamp = datetime.datetime.utcnow(),
+            colour = discord.Colour.blue()
+            )
+            embed.set_footer(text='senate bot')
+            embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/447514535373438976/522865617838145547/P1BmSBO3_400x400.jpg')
+            embed.add_field(name='Announcement', value=message + '\n\nSent by: ' + ctx.message.author.mention, inline = False)
             for member in server.members:
                 if {role, role1, role2, role3, role4, role5, role6}.union(member.roles):
-                    embed = discord.Embed(
-                    timestamp = datetime.datetime.utcnow(),
-                    colour = discord.Colour.blue()
-                    )
-                    embed.set_footer(text='senate bot')
-                    embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/447514535373438976/522865617838145547/P1BmSBO3_400x400.jpg')
-                    embed.add_field(name='Announcement', value=message + '\n\nSent by: ' + ctx.message.author.mention, inline = False)
                     await client.send_message(member, embed=embed)
             await client.send_message(channel, embed=embed)
         else:
             await client.say("Announcement not sent")
-            return
     else:
         await client.say('You lack permission to use this command, if you have any questions or concerns please contact `snowbleed#7824`') 
             
