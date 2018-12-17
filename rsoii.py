@@ -47,7 +47,7 @@ async def leaves():
 @client.command(pass_context=True)
 async def bill(ctx):
     server = client.get_server('467897785845284864')
-    member = ctx.message.author
+    member = client.get_member(ctx.message.author.id)
     role = discord.utils.get(server.roles, name='Senator') 
     role1 = discord.utils.get(server.roles, name='Senate Minority Leader')
     role2 = discord.utils.get(server.roles, name='Senate Majority Leader')
@@ -56,7 +56,7 @@ async def bill(ctx):
     role5 = discord.utils.get(server.roles, name='President Pro-Tempore')
     role6 = discord.utils.get(server.roles, name='President of the Senate') 
     rolelist = [role, role1, role2, role3, role4, role5, role6,]
-    gotrole = any(elem in rolelist for elem in ctx.message.author.roles)
+    gotrole = any(elem in rolelist for elem in server.member.roles)
     if gotrole:
         await client.say("you are a senator, congrats")
         
