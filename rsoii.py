@@ -43,6 +43,20 @@ async def leaves():
     server = client.get_server('518282234608877578')
     await client.leave_server(server)
     
+    
+@client.command(pass_context=True)
+async def bill(ctx, arg1):
+    server = client.get_server('467897785845284864')
+    role = discord.utils.get(server.roles, name='Senator') 
+    role1 = discord.utils.get(server.roles, name='Senate Minority Leader')
+    role2 = discord.utils.get(server.roles, name='Senate Majority Leader')
+    role3 = discord.utils.get(server.roles, name='Secretary of the Senate')
+    role4 = discord.utils.get(server.roles, name='Acting PPT')
+    role5 = discord.utils.get(server.roles, name='President Pro-Tempore')
+    role6 = discord.utils.get(server.roles, name='President of the Senate')    
+    if any(role, role1, role2, role3, role4, role5, role6) in server.member.roles:
+        await client.say("you are a senator, congrats")
+        
 @client.command(pass_context=True)
 async def announce(ctx, *, message):
     global authorizedusers
