@@ -81,7 +81,7 @@ async def bill(ctx, arg):
         if msg.content == '-confirm':
             embed = discord.Embed(
             title = 'Bill needs to be added to the: ',
-            description = '**[' + committee + '](https://trello.com/b/' + cmtetrello + '/cmte**)\n\n' + arg + '\nSubmitted by: ' + ctx.message.author.mention,
+            description = '[' + committee + '](https://trello.com/b/' + cmtetrello + '/cmte)\n\n' + arg + '\nSubmitted by: ' + ctx.message.author.mention,
             timestamp = datetime.datetime.utcnow(),
             colour = discord.Colour.green()
             )
