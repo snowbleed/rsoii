@@ -47,7 +47,7 @@ async def leaves():
 @client.command(pass_context=True)
 async def bill(ctx):
     server = client.get_server('467897785845284864')
-    member = client.get_member(ctx.message.author.id)
+    member = server.get_member(ctx.message.author.id)
     role = discord.utils.get(server.roles, name='Senator') 
     role1 = discord.utils.get(server.roles, name='Senate Minority Leader')
     role2 = discord.utils.get(server.roles, name='Senate Majority Leader')
