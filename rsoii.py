@@ -88,6 +88,7 @@ async def bill(ctx, arg):
             embed.set_footer(text='senate bot')
             embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/447514535373438976/522865617838145547/P1BmSBO3_400x400.jpg')
             await client.send_message(secretary, embed=embed)
+            await client.send_message(ctx.message.author, "Bill has been submitted:\n" + embed=embed)
     else:
         await client.send_message(ctx.message.author, "To submit a bill you need to be a senator, if you have any questions or concerns please contact `snowbleed#7824`")
         
