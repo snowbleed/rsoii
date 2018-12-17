@@ -149,12 +149,11 @@ async def logout(ctx):
     else:
         await client.say('You lack permission to use this command')
         
-""" EMBED EXAMPLE
 @client.command()
 async def displayembed():
     embed = discord.Embed(
         title = 'Title',
-        description = 'This is a description',
+        description = 'This is a [description](https://youtube.com) link',
         colour = discord.Colour.blue()
     )
 
@@ -167,6 +166,6 @@ async def displayembed():
     embed.add_field(name='Snowbleed', value='Field Value', inline = True)
 
     await client.say(embed=embed)
-"""
+
 client.loop.create_task(change_status())
 client.run(TOKEN)
