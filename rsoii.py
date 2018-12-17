@@ -48,7 +48,8 @@ async def leaves():
 async def bill(ctx, arg):
     server = client.get_server('467897785845284864')
     member = server.get_member(ctx.message.author.id)
-    role = discord.utils.get(server.roles, name='Senator') 
+    secretary = await client.get_user_info('147999751441219584')
+    role = discord.utils.get(server.roles, name='Senator')
     role1 = discord.utils.get(server.roles, name='Senate Minority Leader')
     role2 = discord.utils.get(server.roles, name='Senate Majority Leader')
     role3 = discord.utils.get(server.roles, name='Secretary of the Senate')
@@ -61,7 +62,7 @@ async def bill(ctx, arg):
         await client.send_message(ctx.message.author, "You are about to submit a bill, if you are sure about this please say `-confirm`")
         msg = await client.wait_for_message(author=ctx.message.author)
         if msg.content == '-confirm':
-            await client.send_message('147999751441219584', arg)
+            await client.send_message(secretary, arg)
     else:
         await client.send_message(ctx.message.author, "To submit a bill you need to be a senator, if you have any questions or concerns please contact `snowbleed#7824`")
         
