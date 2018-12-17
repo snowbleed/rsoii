@@ -62,11 +62,11 @@ async def bill(ctx, arg):
         await client.send_message(ctx.message.author, "Which committee are you submitting this bill to?\n```Judiciary Committee = 'jega'\nHomeland Security Committee = 'hls'\nArmed Services Committee = 'usm'\nRules and Regulation Committee = 'randr'```")
         committee = await client.wait_for_message(author=ctx.message.author)
         if committee.content == 'jega':
-            committee = "**[Judiciary Committee](https://trello.com/b/q0AQUFqJ/senate-judiciary-committee)**"
+            committee = "[Judiciary Committee](https://trello.com/b/q0AQUFqJ/senate-judiciary-committee)"
         elif committee.content == 'hls':
-            committee = "**[Homeland Security Committee](https://trello.com/b/GdWLqexD/senate-homeland-security-committee)**"
+            committee = "[Homeland Security Committee](https://trello.com/b/GdWLqexD/senate-homeland-security-committee)"
         elif committee.content == 'usm':
-            committee = "**[Armed Services Committee](https://trello.com/b/VqYyiZK4/senate-armed-services-committee)**"
+            committee = "[Armed Services Committee](https://trello.com/b/VqYyiZK4/senate-armed-services-committee)"
         elif committee.content == 'randr':
             committee = "[Rules Committee](https://trello.com/b/g222veai/senate-rules-committee)"
         else:
@@ -83,7 +83,6 @@ async def bill(ctx, arg):
             )
             embed.set_footer(text='senate bot')
             embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/447514535373438976/522865617838145547/P1BmSBO3_400x400.jpg')
-            embed.add_field(name='Bill needs to be added to the ' + committee, value=arg + '\nSubmitted by: ' + ctx.message.author.mention, inline = False)
             await client.send_message(secretary, embed=embed)
     else:
         await client.send_message(ctx.message.author, "To submit a bill you need to be a senator, if you have any questions or concerns please contact `snowbleed#7824`")
