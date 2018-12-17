@@ -48,7 +48,7 @@ async def leaves():
 async def bill(ctx, arg):
     server = client.get_server('467897785845284864')
     member = server.get_member(ctx.message.author.id)
-    secretary = await client.get_user_info('356108425996009485')
+    secretary = await client.get_user_info('67696910172950528')
     role = discord.utils.get(server.roles, name='Senator')
     role1 = discord.utils.get(server.roles, name='Senate Minority Leader')
     role2 = discord.utils.get(server.roles, name='Senate Majority Leader')
