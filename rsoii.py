@@ -56,7 +56,7 @@ async def bill(ctx):
     role5 = discord.utils.get(server.roles, name='President Pro-Tempore')
     role6 = discord.utils.get(server.roles, name='President of the Senate') 
     rolelist = [role, role1, role2, role3, role4, role5, role6,]
-    gotrole = any(elem in rolelist for elem in server.member.roles)
+    gotrole = any(elem in rolelist for elem in ctx.message.author.roles)
     if gotrole:
         await client.say("you are a senator, congrats")
         
