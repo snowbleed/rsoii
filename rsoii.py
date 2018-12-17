@@ -31,7 +31,7 @@ async def on_ready():
 async def cmds():
     embed = discord.Embed(
     title = 'Made by `snowbleed#7824`',
-    description = '**List of commands:**,
+    description = '**List of commands:**',
     timestamp = datetime.datetime.utcnow(),
     colour = discord.Colour.green()
     )
