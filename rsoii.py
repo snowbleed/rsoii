@@ -98,6 +98,7 @@ async def announce(ctx, *, message):
     global authorizedusers
     if (ctx.message.author.id in authorizedusers):
         server = client.get_server('493873932080906242')
+        channel = server.get_channel('520018091355406396')
         role = discord.utils.get(server.roles, name='Senator') 
         role1 = discord.utils.get(server.roles, name='Senate Minority Leader')
         role2 = discord.utils.get(server.roles, name='Senate Majority Leader')
@@ -110,7 +111,6 @@ async def announce(ctx, *, message):
         if msg.content == '-confirm':
             for member in server.members:
                 if {role, role1, role2, role3, role4, role5, role6}.union(member.roles):
-                    channel = '520018091355406396'
                     embed = discord.Embed(
                     timestamp = datetime.datetime.utcnow(),
                     colour = discord.Colour.blue()
