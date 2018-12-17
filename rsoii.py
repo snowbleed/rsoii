@@ -9,7 +9,8 @@ TOKEN = 'NTE4NTUzMDU2NDg1MzEwNjMy.DuSdpw.jihEt-Ge5QXaU8LVKiLpHhzNg4c'
 
 client = commands.Bot(command_prefix = '-')
 status = ['Calling quorum...📝']
-authorizedusers = ["147999751441219584", "67696910172950528", "201459061055684609"]
+authorizedusers = ["147999751441219584", "67696910172950528", "151086529173913601"]
+                  # 1479 = Snowbleed      6769 = Sam4219       1510 = AdamStratton
 client.remove_command("help")
 
 
@@ -28,7 +29,21 @@ async def on_ready():
 
 @client.command()
 async def cmds():
-    await client.say("**-cmds**: Display a list of commands.\n**-ping**: Check if the bot is responding quickly\n**-delete**: Deletes entered amount of messages. Must be more than 2 and less than 100 messages and the messages can not be over 2 weeks old. Format: `-delete <integer>`\n**-announce**: Make an announcement. Format: `-announce <text>`")
+    embed = discord.Embed(
+    title = 'Made by `snowbleed#7824`',
+    description = '**List of commands:**,
+    timestamp = datetime.datetime.utcnow(),
+    colour = discord.Colour.green()
+    )
+    embed.set_footer(text='senate bot')
+    embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/447514535373438976/522865617838145547/P1BmSBO3_400x400.jpg')
+    embed.add_field(name="-cmds", value="Display a list of commands.", inline = False)
+    embed.add_field(name="-ping", value="Check if the bot is responding quickly and correctly.", inline = False)
+    embed.add_field(name="-delete", value="Deletes entered amount of messages. Must be more than 2 and less than 100 messages and the messages can not be over 2 weeks old. Format: `-delete <integer>`", inline = False)
+    embed.add_field(name="-announce", value="Make an announcement. Format: `-announce <text>`", inline = False)
+    embed.add_field(name="-bill", value="Sends a bill to be added to any of the four Senate committees respectively. Format: `-bill <link>`", inline = False)
+    
+    await client.say(embed=embed)
 @client.command()
 async def ping():
     await client.say('Pong!')
@@ -151,7 +166,7 @@ async def logout(ctx):
         await client.logout()
     else:
         await client.say('You lack permission to use this command')
-        
+""" EMBED EXAMPLE     
 @client.command()
 async def displayembed():
     embed = discord.Embed(
@@ -169,6 +184,6 @@ async def displayembed():
     embed.add_field(name='Snowbleed', value='Field Value', inline = True)
 
     await client.say(embed=embed)
-
+"""
 client.loop.create_task(change_status())
 client.run(TOKEN)
