@@ -59,6 +59,8 @@ async def bill(ctx):
     gotrole = any(elem in rolelist for elem in member.roles)
     if gotrole:
         await client.say("you are a senator, congrats")
+    else:
+        await client.send_message(ctx.message.author, "To submit a bill you need to be a senator, if you have any questions or concerns please contact `snowbleed#7824`")
         
 @client.command(pass_context=True)
 async def announce(ctx, *, message):
