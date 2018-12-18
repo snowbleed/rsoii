@@ -37,17 +37,21 @@ async def on_member_join(member):
 
 @client.command()
 async def committees():
-    embed = discord.Embed(
-    title = "Committee's chairs and members respectively:",
-    timestamp = datetime.datetime.utcnow(),
-    colour = discord.Colour.red()
-    )
-    embed.set_footer(text='senate bot')
-    embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/447514535373438976/522865617838145547/P1BmSBO3_400x400.jpg')
-    embed.add_field(name="Judicary Committee", value="Chair: N/A\nMembers: Snowbleed & Sam4219", inline = False)
-    embed.add_field(name="Homeland Security Committee", value="Chair: N/A\nMembers: largeTitanic2", inline = False)
-    embed.add_field(name="Armed Services Committee", value="Chair: largeTitanic2\nMembers: Succiuss, Castelliano, Snowbleed & DiamondSkies1", inline = False)
-    embed.add_field(name="Rules and Regulation Committee", value="Chair: Snowbleed\nMembers: Sam4219, largeTitanic2, Castelliano & Succiuss", inline = False)
+    if ctx.message.author.id == '147999751441219584':
+        embed = discord.Embed(
+        title = "Committee's chairs and members respectively:",
+        timestamp = datetime.datetime.utcnow(),
+        colour = discord.Colour.red()
+        )
+        embed.set_footer(text='senate bot')
+        embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/447514535373438976/522865617838145547/P1BmSBO3_400x400.jpg')
+        embed.add_field(name="Judicary Committee", value="Chair: N/A\nMembers: Snowbleed & Sam4219", inline = False)
+        embed.add_field(name="Homeland Security Committee", value="Chair: N/A\nMembers: largeTitanic2", inline = False)
+        embed.add_field(name="Armed Services Committee", value="Chair: largeTitanic2\nMembers: Succiuss, Castelliano, Snowbleed & DiamondSkies1", inline = False)
+        embed.add_field(name="Rules and Regulation Committee", value="Chair: Snowbleed\nMembers: Sam4219, largeTitanic2, Castelliano & Succiuss", inline = False)
+        await client.say(embed=embed)
+    else:
+        return
 @client.command()
 async def cmds():
     embed = discord.Embed(
