@@ -154,7 +154,7 @@ async def announce(ctx, *, message):
             embed.add_field(name='Announcement', value=message + '\n\nSent by: ' + ctx.message.author.mention, inline = False)
             await client.send_message(channel, embed=embed)
             for member in server.members:
-                for role in member.roles:
+                if role in member.roles:
                     await client.send_message(member, embed=embed)
         else:
             await client.say("Announcement not sent")
