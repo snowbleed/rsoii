@@ -35,8 +35,8 @@ async def on_member_join(member):
     else:
         print("User joined any other fucking discord")
 
-@client.command()
-async def committees():
+@client.command(pass_context=True)
+async def committees(ctx):
     if ctx.message.author.id == '147999751441219584':
         embed = discord.Embed(
         title = "Committee's chairs and members respectively:",
