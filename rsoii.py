@@ -140,15 +140,9 @@ async def announce(ctx, *, message):
         server = client.get_server('467897785845284864')
         channel = server.get_channel('467900156004663306')
         role = discord.utils.get(server.roles, name='Senator') 
-        role1 = discord.utils.get(server.roles, name='Senate Minority Leader')
-        role2 = discord.utils.get(server.roles, name='Senate Majority Leader')
-        role3 = discord.utils.get(server.roles, name='Secretary of the Senate')
-        role4 = discord.utils.get(server.roles, name='Acting PPT')
-        role5 = discord.utils.get(server.roles, name='President Pro-Tempore')
-        role6 = discord.utils.get(server.roles, name='President of the Senate')
         await client.say('You are about to make an announcement, if you are sure please say -confirm')
         msg = await client.wait_for_message(author=ctx.message.author)
-        if msg.content == '-confirm':
+        if msg.content == '-confirm':  
             embed = discord.Embed(
             timestamp = datetime.datetime.utcnow(),
             colour = discord.Colour.blue()
@@ -158,7 +152,7 @@ async def announce(ctx, *, message):
             embed.add_field(name='Announcement', value=message + '\n\nSent by: ' + ctx.message.author.mention, inline = False)
             await client.send_message(channel, embed=embed)
             for member in server.members:
-                if {role, role1, role2, role3, role4, role5, role6}.union(member.roles):
+                for role in member.roles:
                     await client.send_message(member, embed=embed)
         else:
             await client.say("Announcement not sent")
