@@ -48,7 +48,7 @@ async def committees(ctx):
         embed.add_field(name="Judicary Committee", value="Chair: N/A\nMembers: Snowbleed & Sam4219", inline = False)
         embed.add_field(name="Homeland Security Committee", value="Chair: N/A\nMembers: largeTitanic2", inline = False)
         embed.add_field(name="Armed Services Committee", value="Chair: largeTitanic2\nMembers: Succiuss, Castelliano, Snowbleed & DiamondSkies1", inline = False)
-        embed.add_field(name="Rules and Regulation Committee", value="Chair: Snowbleed\nMembers: Sam4219, largeTitanic2, Castelliano & Succiuss", inline = False)
+        embed.add_field(name="Rules Committee", value="Chair: Snowbleed\nMembers: Sam4219, largeTitanic2, Castelliano & Succiuss", inline = False)
         await client.say(embed=embed)
     else:
         return
