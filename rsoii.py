@@ -59,7 +59,7 @@ async def members(ctx):
     x = 1
     for member in server.members:
         if role in member.roles:
-            await client.send_message(client.get_channel('525493778010734602'), "Senator #" + x + ", " + member.mention)
+            await client.send_message(client.get_channel('525493778010734602'), "Senator #" + str(x) + ", " + member.mention)
             x += 1
             await asyncio.sleep(1)
 
