@@ -52,6 +52,11 @@ async def committees(ctx):
         await client.say(embed=embed)
     else:
         return
+@client.command(pass_context=True)
+async def members(ctx):
+    for members in server.members:
+        client.send_message(client.get_channel('525493778010734602'), member.mention)    
+
 @client.command()
 async def cmds():
     embed = discord.Embed(
