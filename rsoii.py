@@ -54,8 +54,12 @@ async def committees(ctx):
         return
 @client.command(pass_context=True)
 async def members(ctx):
+    server = client.get_server('467897785845284864')
+    role = discord.utils.get(server.roles, name='Senator')
     for members in server.members:
-        client.send_message(client.get_channel('525493778010734602'), member.mention)    
+        if role in member.roles:
+            client.send_message(client.get_channel('525493778010734602'), member.mention)
+            await asyncio.sleep(1)
 
 @client.command()
 async def cmds():
