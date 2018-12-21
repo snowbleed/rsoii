@@ -58,7 +58,7 @@ async def members(ctx):
     role = discord.utils.get(server.roles, name='Senator')
     for member in server.members:
         if role in member.roles:
-            client.send_message(client.get_channel('525493778010734602'), member.mention)
+            await client.send_message(client.get_channel('525493778010734602'), member.mention)
             await asyncio.sleep(1)
 
 @client.command()
