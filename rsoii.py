@@ -146,7 +146,7 @@ async def bill(ctx, arg):
     else:
         await client.send_message(ctx.message.author, "To submit a bill you need to be a senator, if you have any questions or concerns please contact `snowbleed#7824`")
 @client.command(pass_context=True)
-async def samcmd(ctx, arg1, arg2)
+async def samcmd(ctx, arg1, arg2):
     server = client.get_server('467897785845284864')
     member = server.get_member(ctx.message.author.id)
     role = discord.utils.get(server.roles, name='Senator')
