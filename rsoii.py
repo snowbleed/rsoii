@@ -145,6 +145,18 @@ async def bill(ctx, arg):
             await client.send_message(ctx.message.author, embed=embed)
     else:
         await client.send_message(ctx.message.author, "To submit a bill you need to be a senator, if you have any questions or concerns please contact `snowbleed#7824`")
+@client.command(pass_context=True)
+async def samcmd(ctx, arg1, arg2)
+    server = client.get_server('467897785845284864')
+    member = server.get_member(ctx.message.author.id)
+    role = discord.utils.get(server.roles, name='Senator')
+    rolelist = [role]
+    gotrole = any(elem in rolelist for elem in member.roles)
+    if gotrole:
+        await client.change_nickname(member, ctx.message.author.name + " [" + arg1 + "-" + arg2 + "]")
+        await client.say("Your nickname has been changed to `" + ctx.message.author.name + " [" + arg1 + "-" + arg2 + "]`") 
+    else:
+        return
         
 @client.command(pass_context=True)
 async def announce(ctx, *, message):
