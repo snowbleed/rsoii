@@ -163,9 +163,9 @@ async def samcmd(ctx, arg1, arg2):
 @client.command(pass_context=True)
 async def testing(ctx):
     if (ctx.message.author.id in authorizedusers):
-        channellist = ["524368695024156674", "467900156004663306"]
-        for channel in channellist:            
-            await client.send_message(channel, "testing")
+        channellist = ['524368695024156674', '467900156004663306']
+        for channel in channelist:
+            await client.send_message(client.get_channel(channel), "testing")
     else:
         return
     
