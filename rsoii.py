@@ -186,9 +186,9 @@ async def announce(ctx, *, message):
             embed.set_footer(text='senate bot')
             embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/447514535373438976/522865617838145547/P1BmSBO3_400x400.jpg')
             embed.add_field(name='Announcement', value=message + '\n\nSent by: ' + ctx.message.author.mention, inline = False)
-            channellist = ["524368695024156674", "467900156004663306"]
-            for channel in channellist:            
-                await client.send_message(channel, embed=embed)
+            channellist = ['524368695024156674', '467900156004663306']
+            for channel in channellist:
+                await client.send_message(client.get_channel(channel), "testing")
             for member in server.members:
                 if role in member.roles:
                     await client.send_message(member, embed=embed)
