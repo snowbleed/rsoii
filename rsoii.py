@@ -45,13 +45,14 @@ async def committees(ctx):
         )
         embed.set_footer(text='senate bot')
         embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/447514535373438976/522865617838145547/P1BmSBO3_400x400.jpg')
-        embed.add_field(name="Judicary Committee", value="Chair: N/A\nMembers: Snowbleed & Sam4219", inline = False)
+        embed.add_field(name="Judicary Committee", value="Chair: Sam4219\nMembers: Snowbleed, Ozzymen, Castelliano & Coolvibez", inline = False)
         embed.add_field(name="Homeland Security Committee", value="Chair: N/A\nMembers: largeTitanic2", inline = False)
-        embed.add_field(name="Armed Services Committee", value="Chair: largeTitanic2\nMembers: Succiuss, Castelliano, Snowbleed & DiamondSkies1", inline = False)
-        embed.add_field(name="Rules Committee", value="Chair: Snowbleed\nMembers: Sam4219, largeTitanic2, Castelliano & Succiuss", inline = False)
+        embed.add_field(name="Armed Services Committee", value="Chair: largeTitanic2\nMembers: SirSamuelSmith, Castelliano, Snowbleed & Sam4219", inline = False)
+        embed.add_field(name="Rules Committee", value="Chair: Snowbleed\nMembers: Sam4219, Isner, Castelliano & SirSamuelSmith", inline = False)
         await client.say(embed=embed)
     else:
         return
+"""
 @client.command(pass_context=True)
 async def members(ctx):
     server = client.get_server('467897785845284864')
@@ -62,6 +63,7 @@ async def members(ctx):
             await client.send_message(client.get_channel('525493778010734602'), "Senator #" + str(x) + ", " + member.mention)
             x += 1
             await asyncio.sleep(1)
+"""
 
 @client.command()
 async def cmds():
@@ -175,7 +177,9 @@ async def announce(ctx, *, message):
             embed.set_footer(text='senate bot')
             embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/447514535373438976/522865617838145547/P1BmSBO3_400x400.jpg')
             embed.add_field(name='Announcement', value=message + '\n\nSent by: ' + ctx.message.author.mention, inline = False)
-            await client.send_message(channel, embed=embed)
+            channellist = ["524368695024156674", "467900156004663306"]
+            for channel in channellist:            
+                await client.send_message(channel, embed=embed)
             for member in server.members:
                 if role in member.roles:
                     await client.send_message(member, embed=embed)
