@@ -9,8 +9,8 @@ TOKEN = 'NTE4NTUzMDU2NDg1MzEwNjMy.DuSdpw.jihEt-Ge5QXaU8LVKiLpHhzNg4c'
 
 client = commands.Bot(command_prefix = '-')
 status = ['Calling quorum...📝']
-authorizedusers = ["147999751441219584", "67696910172950528"]
-#                   1479 = Snowbleed      6769 = Sam4219     
+authorizedusers = ["147999751441219584", "67696910172950528", "356108425996009485"]
+#                   1479 = Snowbleed      6769 = Sam4219       3561 = Risen_Orbs
 client.remove_command("help")
 
 
