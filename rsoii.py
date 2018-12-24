@@ -159,7 +159,16 @@ async def samcmd(ctx, arg1, arg2):
         await client.say("Your nickname has been changed to `" + ctx.message.author.name + " [" + arg1 + "-" + arg2 + "]`") 
     else:
         return
-        
+    
+@client.command()
+async def testing():
+    if (ctx.message.author.id in authorizedusers):
+        channellist = ["524368695024156674", "467900156004663306"]
+        for channel in channellist:            
+            await client.send_message(channel, "testing")
+    else:
+        return
+    
 @client.command(pass_context=True)
 async def announce(ctx, *, message):
     global authorizedusers
