@@ -80,7 +80,7 @@ async def cmds():
     embed.add_field(name="-delete", value="Deletes entered amount of messages. Must be more than 2 and less than 100 messages and the messages can not be over 2 weeks old. Format: `-delete <integer>`", inline = False)
     embed.add_field(name="-announce", value="Make an announcement. Format: `-announce <text>`", inline = False)
     embed.add_field(name="-bill", value="Sends a bill to be added to any of the four Senate committees respectively. Format: `-bill <link>`", inline = False)
-    
+    embed.add_field(name="-samcmd", value="Allows Senators to nickname themselves to their party and state e.g. `BigOrrin [D-NC]`. Format: `-samcmd <party initial> <state acronym>`", inline = False)
     await client.say(embed=embed)
 @client.command()
 async def ping():
@@ -160,8 +160,8 @@ async def samcmd(ctx, arg1, arg2):
     else:
         return
     
-@client.command()
-async def testing():
+@client.command(pass_context=True)
+async def testing(ctx):
     if (ctx.message.author.id in authorizedusers):
         channellist = ["524368695024156674", "467900156004663306"]
         for channel in channellist:            
