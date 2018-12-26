@@ -12,7 +12,7 @@ status = ['Calling quorum...📝']
 client.authorizedusers = ["147999751441219584", "67696910172950528", "356108425996009485"]
 #                   1479 = Snowbleed      6769 = Sam4219       3561 = Risen_Orbs
 client.remove_command("help")
-cmteembed = discord.Embed(
+embed = discord.Embed(
     title = "Committee's chairs and members respectively:",
     timestamp = datetime.datetime.utcnow(),
     colour = discord.Colour.red()
@@ -22,7 +22,7 @@ cmteembed = discord.Embed(
     embed.add_field(name="Homeland Security Committee", url="https://trello.com/b/GdWLqexD/senate-homeland-security-committee", value="Chair: N/A\nMembers: largeTitanic2", inline = False)
     embed.add_field(name="Armed Services Committee", url="https://trello.com/b/VqYyiZK4/senate-armed-services-committee", value="Chair: largeTitanic2\nMembers: SirSamuelSmith, Castelliano, Snowbleed & Sam4219", inline = False)
     embed.add_field(name="Rules Committee", url="https://trello.com/b/g222veai/senate-rules-committee", value="Chair: Snowbleed\nMembers: Sam4219, Isner, Castelliano & SirSamuelSmith", inline = False)
-client.cmteembed = cmteembed
+client.cmteembed = embed
 
 async def change_status():
     await client.wait_until_ready()
