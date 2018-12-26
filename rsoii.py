@@ -9,10 +9,20 @@ TOKEN = 'NTE4NTUzMDU2NDg1MzEwNjMy.DuSdpw.jihEt-Ge5QXaU8LVKiLpHhzNg4c'
 
 client = commands.Bot(command_prefix = '-')
 status = ['Calling quorum...📝']
-authorizedusers = ["147999751441219584", "67696910172950528", "356108425996009485"]
+client.authorizedusers = ["147999751441219584", "67696910172950528", "356108425996009485"]
 #                   1479 = Snowbleed      6769 = Sam4219       3561 = Risen_Orbs
 client.remove_command("help")
-
+client.cmteembed = discord.Embed(
+        title = "Committee's chairs and members respectively:",
+        timestamp = datetime.datetime.utcnow(),
+        colour = discord.Colour.red()
+        )
+        embed.set_footer(text='senate bot')
+        embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/447514535373438976/522865617838145547/P1BmSBO3_400x400.jpg')
+        embed.add_field(name="Judicary Committee", url="https://trello.com/b/q0AQUFqJ/senate-judiciary-committee", value="Chair: Sam4219\nMembers: Snowbleed, Ozzymen, Castelliano & Coolvibez", inline = False)
+        embed.add_field(name="Homeland Security Committee", url="https://trello.com/b/GdWLqexD/senate-homeland-security-committee", value="Chair: N/A\nMembers: largeTitanic2", inline = False)
+        embed.add_field(name="Armed Services Committee", url="https://trello.com/b/VqYyiZK4/senate-armed-services-committee", value="Chair: largeTitanic2\nMembers: SirSamuelSmith, Castelliano, Snowbleed & Sam4219", inline = False)
+        embed.add_field(name="Rules Committee", url="https://trello.com/b/g222veai/senate-rules-committee", value="Chair: Snowbleed\nMembers: Sam4219, Isner, Castelliano & SirSamuelSmith", inline = False)
 
 async def change_status():
     await client.wait_until_ready()
@@ -38,18 +48,7 @@ async def on_member_join(member):
 @client.command(pass_context=True)
 async def committees(ctx):
     if ctx.message.author.id == '147999751441219584':
-        embed = discord.Embed(
-        title = "Committee's chairs and members respectively:",
-        timestamp = datetime.datetime.utcnow(),
-        colour = discord.Colour.red()
-        )
-        embed.set_footer(text='senate bot')
-        embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/447514535373438976/522865617838145547/P1BmSBO3_400x400.jpg')
-        embed.add_field(name="Judicary Committee", value="Chair: Sam4219\nMembers: Snowbleed, Ozzymen, Castelliano & Coolvibez", inline = False)
-        embed.add_field(name="Homeland Security Committee", value="Chair: N/A\nMembers: largeTitanic2", inline = False)
-        embed.add_field(name="Armed Services Committee", value="Chair: largeTitanic2\nMembers: SirSamuelSmith, Castelliano, Snowbleed & Sam4219", inline = False)
-        embed.add_field(name="Rules Committee", value="Chair: Snowbleed\nMembers: Sam4219, Isner, Castelliano & SirSamuelSmith", inline = False)
-        await client.say(embed=embed)
+        await client.say(embed=client.cmteembed)
     else:
         return
 """
@@ -160,19 +159,11 @@ async def samcmd(ctx, arg1, arg2):
     else:
         return
     
-@client.command(pass_context=True)
-async def testing(ctx):
-    if (ctx.message.author.id in authorizedusers):
-        channellist = ['524368695024156674', '467900156004663306']
-        for channel in channellist:
-            await client.send_message(client.get_channel(channel), "testing")
-    else:
-        return
+
     
 @client.command(pass_context=True)
 async def announce(ctx, *, message):
-    global authorizedusers
-    if (ctx.message.author.id in authorizedusers):
+    if (ctx.message.author.id in client.authorizedusers):
         server = client.get_server('467897785845284864')
         channel = server.get_channel('467900156004663306')
         role = discord.utils.get(server.roles, name='Senator') 
@@ -188,7 +179,7 @@ async def announce(ctx, *, message):
             embed.add_field(name='Announcement', value=message + '\n\nSent by: ' + ctx.message.author.mention, inline = False)
             channellist = ['524368695024156674', '467900156004663306']
             for channel in channellist:
-                await client.send_message(client.get_channel(channel), "testing")
+                await client.send_message(client.get_channel(channel), embed=embed)
             for member in server.members:
                 if role in member.roles:
                     await client.send_message(member, embed=embed)
@@ -199,8 +190,7 @@ async def announce(ctx, *, message):
             
 @client.command(pass_context=True)
 async def delete(ctx, amount=100):
-    global authorizedusers
-    if (ctx.message.author.id in authorizedusers):
+    if (ctx.message.author.id in client.authorizedusers):
         if ((amount > 1) and (amount < 100)):
             channel = ctx.message.channel
             messages = []
