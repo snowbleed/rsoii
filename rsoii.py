@@ -13,11 +13,10 @@ client.authorizedusers = ["147999751441219584", "67696910172950528", "3561084259
 #                   1479 = Snowbleed      6769 = Sam4219       3561 = Risen_Orbs
 client.remove_command("help")
 cmteembed = discord.Embed(
-        title = "Committee's chairs and members respectively:",
-        timestamp = datetime.datetime.utcnow(),
-        colour = discord.Colour.red()
-        )
-        embed.set_footer(text='senate bot')
+    title = "Committee's chairs and members respectively:",
+    timestamp = datetime.datetime.utcnow(),
+    colour = discord.Colour.red()
+    )
         embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/447514535373438976/522865617838145547/P1BmSBO3_400x400.jpg')
         embed.add_field(name="Judicary Committee", url="https://trello.com/b/q0AQUFqJ/senate-judiciary-committee", value="Chair: Sam4219\nMembers: Snowbleed, Ozzymen, Castelliano & Coolvibez", inline = False)
         embed.add_field(name="Homeland Security Committee", url="https://trello.com/b/GdWLqexD/senate-homeland-security-committee", value="Chair: N/A\nMembers: largeTitanic2", inline = False)
@@ -28,7 +27,6 @@ client.cmteembed = cmteembed
 async def change_status():
     await client.wait_until_ready()
     msgs = cycle(status)
-
     while not client.is_closed:
         current_status = next(msgs)
         await client.change_presence(game=discord.Game(name=current_status))
