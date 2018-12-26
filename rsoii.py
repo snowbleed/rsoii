@@ -17,11 +17,11 @@ embed = discord.Embed(
     timestamp = datetime.datetime.utcnow(),
     colour = discord.Colour.red()
     )
-    embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/447514535373438976/522865617838145547/P1BmSBO3_400x400.jpg')
-    embed.add_field(name="Judicary Committee", url="https://trello.com/b/q0AQUFqJ/senate-judiciary-committee", value="Chair: Sam4219\nMembers: Snowbleed, Ozzymen, Castelliano & Coolvibez", inline = False)
-    embed.add_field(name="Homeland Security Committee", url="https://trello.com/b/GdWLqexD/senate-homeland-security-committee", value="Chair: N/A\nMembers: largeTitanic2", inline = False)
-    embed.add_field(name="Armed Services Committee", url="https://trello.com/b/VqYyiZK4/senate-armed-services-committee", value="Chair: largeTitanic2\nMembers: SirSamuelSmith, Castelliano, Snowbleed & Sam4219", inline = False)
-    embed.add_field(name="Rules Committee", url="https://trello.com/b/g222veai/senate-rules-committee", value="Chair: Snowbleed\nMembers: Sam4219, Isner, Castelliano & SirSamuelSmith", inline = False)
+embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/447514535373438976/522865617838145547/P1BmSBO3_400x400.jpg')
+embed.add_field(name="Judicary Committee", url="https://trello.com/b/q0AQUFqJ/senate-judiciary-committee", value="Chair: Sam4219\nMembers: Snowbleed, Ozzymen, Castelliano & Coolvibez", inline = False)
+embed.add_field(name="Homeland Security Committee", url="https://trello.com/b/GdWLqexD/senate-homeland-security-committee", value="Chair: N/A\nMembers: largeTitanic2", inline = False)
+embed.add_field(name="Armed Services Committee", url="https://trello.com/b/VqYyiZK4/senate-armed-services-committee", value="Chair: largeTitanic2\nMembers: SirSamuelSmith, Castelliano, Snowbleed & Sam4219", inline = False)
+embed.add_field(name="Rules Committee", url="https://trello.com/b/g222veai/senate-rules-committee", value="Chair: Snowbleed\nMembers: Sam4219, Isner, Castelliano & SirSamuelSmith", inline = False)
 client.cmteembed = embed
 
 async def change_status():
