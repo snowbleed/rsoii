@@ -53,7 +53,7 @@ async def committees(ctx):
 
 @client.command(pass_context=True)
 async def members(ctx):
-    if ctx.message.author.id == '147999751441219584'
+    if ctx.message.author.id == '147999751441219584':
         server = client.get_server('467897785845284864')
         role = discord.utils.get(server.roles, name='Senator')
         x = 1
