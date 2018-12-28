@@ -186,7 +186,7 @@ async def announce(ctx, *, message):
                         await client.send_message(member, embed=embed)
             except: 
                 output += f"{member}\n"
-                await client.send_message(ctx.message.author.id, f"```{output}```")
+                await client.send_message(ctx.message.author, f"```{output}```")
             if not output:
                 await client.say("Message was successfully sent to everyone!")
             elif output:
