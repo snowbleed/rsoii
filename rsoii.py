@@ -13,15 +13,15 @@ client.authorizedusers = ["147999751441219584", "67696910172950528", "3561084259
 #                   1479 = Snowbleed      6769 = Sam4219       3561 = Risen_Orbs
 client.remove_command("help")
 embed = discord.Embed(
-    title = "Committee's chairs and members respectively:",
+    title = "__COMMITTEE CHAIRMEN AND MEMBERS RESPECTIVELY:__",
     timestamp = datetime.datetime.utcnow(),
     colour = discord.Colour.red()
     )
 embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/447514535373438976/522865617838145547/P1BmSBO3_400x400.jpg')
 embed.add_field(name="Judicary Committee", value="Chair: Sam4219\nMembers: Snowbleed, Sufferpoop, Castelliano & Coolvibez\n[TRELLO HERE](https://trello.com/b/q0AQUFqJ/senate-judiciary-committee)", inline = False)
-embed.add_field(name="Homeland Security Committee", value="Chair: Isner\nMembers: Coolvibez, chewdog10, SirSamuelSmith & Snowbleed\n[TRELLO HERE](https://trello.com/b/GdWLqexD/senate-homeland-security-committee)", inline = False)
-embed.add_field(name="Armed Services Committee", value="Chair: Castelliano\nMembers: SirSamuelSmith, Lacryma, Snowbleed & Sam4219\n[TRELLO HERE](https://trello.com/b/VqYyiZK4/senate-armed-services-committee)", inline = False)
-embed.add_field(name="Rules Committee", value="Chair: Snowbleed\nMembers: Sam4219, Isner, Castelliano & SirSamuelSmith\n[TRELLO HERE](https://trello.com/b/g222veai/senate-rules-committee)", inline = False)
+embed.add_field(name="────────────────────\nHomeland Security Committee", value="Chair: Isner\nMembers: Coolvibez, chewdog10, SirSamuelSmith & Snowbleed\n[TRELLO HERE](https://trello.com/b/GdWLqexD/senate-homeland-security-committee)", inline = False)
+embed.add_field(name="────────────────────\nArmed Services Committee", value="Chair: Castelliano\nMembers: SirSamuelSmith, Lacryma, Snowbleed & Sam4219\n[TRELLO HERE](https://trello.com/b/VqYyiZK4/senate-armed-services-committee)", inline = False)
+embed.add_field(name="────────────────────\nRules Committee", value="Chair: Snowbleed\nMembers: Sam4219, Isner, Sufferpoop & SirSamuelSmith\n[TRELLO HERE](https://trello.com/b/g222veai/senate-rules-committee)", inline = False)
 client.cmteembed = embed
 
 async def change_status():
