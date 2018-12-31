@@ -19,8 +19,8 @@ embed = discord.Embed(
     )
 embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/447514535373438976/522865617838145547/P1BmSBO3_400x400.jpg')
 embed.add_field(name="Judicary Committee", value="Chair: Sam4219\nMembers: Snowbleed, Sufferpoop, Castelliano & Coolvibez\n[TRELLO HERE](https://trello.com/b/q0AQUFqJ/senate-judiciary-committee)", inline = False)
-embed.add_field(name="Homeland Security Committee", value="Chair: Isner\nMembers: largeTitanic2, chewdog10, SirSamuelSmith & Snowbleed\n[TRELLO HERE](https://trello.com/b/GdWLqexD/senate-homeland-security-committee)", inline = False)
-embed.add_field(name="Armed Services Committee", value="Chair: largeTitanic2\nMembers: SirSamuelSmith, Castelliano, Snowbleed & Sam4219\n[TRELLO HERE](https://trello.com/b/VqYyiZK4/senate-armed-services-committee)", inline = False)
+embed.add_field(name="Homeland Security Committee", value="Chair: Isner\nMembers: Coolvibez, chewdog10, SirSamuelSmith & Snowbleed\n[TRELLO HERE](https://trello.com/b/GdWLqexD/senate-homeland-security-committee)", inline = False)
+embed.add_field(name="Armed Services Committee", value="Chair: Castelliano\nMembers: SirSamuelSmith, Lacryma, Snowbleed & Sam4219\n[TRELLO HERE](https://trello.com/b/VqYyiZK4/senate-armed-services-committee)", inline = False)
 embed.add_field(name="Rules Committee", value="Chair: Snowbleed\nMembers: Sam4219, Isner, Castelliano & SirSamuelSmith\n[TRELLO HERE](https://trello.com/b/g222veai/senate-rules-committee)", inline = False)
 client.cmteembed = embed
 
