@@ -9,8 +9,8 @@ TOKEN = 'NTE4NTUzMDU2NDg1MzEwNjMy.DuSdpw.jihEt-Ge5QXaU8LVKiLpHhzNg4c'
 
 client = commands.Bot(command_prefix = '-')
 status = ['Calling quorum...📝']
-client.authorizedusers = ["147999751441219584", "67696910172950528",]
-#                   1479 = Snowbleed      6769 = Sam4219       
+client.authorizedusers = ["147999751441219584", "168461960172535809",]
+#                          1479 = Snowbleed       1684 = Dralian       
 client.remove_command("help")
 embed = discord.Embed(
     title = "__COMMITTEE CHAIRMEN AND MEMBERS RESPECTIVELY:__",
@@ -103,7 +103,7 @@ async def bill(ctx, arg):
     server = client.get_server('467897785845284864')
     member = server.get_member(ctx.message.author.id)
     secretary = await client.get_user_info('356108425996009485')
-    ppt = await client.get_user_info('67696910172950528')
+    ppt = await client.get_user_info('147999751441219584')
     role = discord.utils.get(server.roles, name='Senator')
     role1 = discord.utils.get(server.roles, name='Senate Minority Leader')
     role2 = discord.utils.get(server.roles, name='Senate Majority Leader')
