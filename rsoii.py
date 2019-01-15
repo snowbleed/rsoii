@@ -60,7 +60,7 @@ async def members(ctx):
         output = ''
         for member in server.members:
             if role in member.roles:
-                output += f"Senator # {str(x)}, {member.mention}"
+                output += f"Senator # {str(x)}, {member.mention}\n"
                 x += 1
                 await asyncio.sleep(1)
         await client.say(output)
