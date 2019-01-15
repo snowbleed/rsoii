@@ -63,7 +63,7 @@ async def members(ctx):
                 output += f"Senator # {str(x)}, {member.mention}"
                 x += 1
                 await asyncio.sleep(1)
-            await client.say(output)
+        await client.say(output)
     else:
         return
 
