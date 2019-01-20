@@ -104,8 +104,8 @@ async def leaves():
 async def bill(ctx, arg):
     server = client.get_server('467897785845284864')
     member = server.get_member(ctx.message.author.id)
-    secretary = await client.get_user_info('356108425996009485')
-    ppt = await client.get_user_info('147999751441219584')
+    secretary = await client.get_user_info('497603192776032268') #Waffles
+    ppt = await client.get_user_info('147999751441219584') #Snowbleed
     role = discord.utils.get(server.roles, name='Senator')
     role1 = discord.utils.get(server.roles, name='Senate Minority Leader')
     role2 = discord.utils.get(server.roles, name='Senate Majority Leader')
@@ -145,6 +145,7 @@ async def bill(ctx, arg):
             embed.set_footer(text='senate bot')
             embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/447514535373438976/522865617838145547/P1BmSBO3_400x400.jpg')
             await client.send_message(ppt, embed=embed)
+            await client.send_message(secretary, embed=embed)
             await client.send_message(ctx.message.author, "Your bill has been submitted, here's how it looks!")
             await client.send_message(ctx.message.author, embed=embed)
     else:
