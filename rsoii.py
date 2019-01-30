@@ -9,8 +9,8 @@ TOKEN = 'NTE4NTUzMDU2NDg1MzEwNjMy.DuSdpw.jihEt-Ge5QXaU8LVKiLpHhzNg4c'
 
 client = commands.Bot(command_prefix = '-')
 status = ['Calling quorum...📝']
-client.authorizedusers = ["147999751441219584", "168461960172535809",]
-#                          1479 = Snowbleed       1684 = Dralian       
+client.authorizedusers = ["147999751441219584", "168461960172535809", "194195228377350154"]
+#                          1479 = Snowbleed       1684 = Dralian       1941 = WillMcAvoy
 client.remove_command("help")
 embed = discord.Embed(
     title = "__COMMITTEE CHAIRMEN AND MEMBERS RESPECTIVELY:__",
