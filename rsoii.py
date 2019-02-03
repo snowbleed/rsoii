@@ -77,7 +77,7 @@ async def test(ctx):
                 counter +=1
             else:
                 await client.say(output)
-                coutner = 0
+                counter = 0
                 output = ''
 
             
