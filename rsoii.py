@@ -62,11 +62,18 @@ async def members(ctx):
             if role in member.roles:
                 output += f"Senator # {str(x)}, {member.mention}\n"
                 x += 1
-                await asyncio.sleep(1)
         await client.say(output)
     else:
         return
-
+@client.command(pass_context=True)
+async def members(ctx):
+    if ctx.message.author.id == '147999751441219584':
+        server = client.get_server('467897785845284864')
+        output = ''
+        for member in server.members:
+            output += f"{member.id} "
+        await client.say(output)
+            
 
 @client.command()
 async def cmds():
