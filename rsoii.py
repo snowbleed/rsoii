@@ -186,13 +186,16 @@ async def announce(ctx, *, message):
                 await client.send_message(client.get_channel(channel), embed=embed)
             output = ""
             for member in server.members:
-                if role in member.roles:
-                    try:
-                        await client.send_message(member, embed=embed)
-                    except: 
-                        output += f"{member}\n"
+                if member.id == '160743473023025154':
+                    print("lol stupid gobe")
+                else:
+                    if role in member.roles:
+                        try:
+                            await client.send_message(member, embed=embed)
+                        except: 
+                            output += f"{member.mention}\n"
             if output:
-                await client.send_message(ctx.message.author, f"```{output}```")
+                await client.send_message(ctx.message.author, f"{output}")
                 await client.say("A list of the people I could not message has been delivered in your direct messages.")
             elif not output:
                 await client.say("Message was successfully sent to everyone!")
