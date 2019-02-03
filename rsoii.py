@@ -70,8 +70,14 @@ async def test(ctx):
     if ctx.message.author.id == '147999751441219584':
         server = client.get_server('467897785845284864')
         output = ''
+        counter = 0
         for member in server.members:
-            print(server.members[0])
+            if (counter < 50):
+                print(member)
+                counter +=1
+            else:
+                counter = 0
+            
          #   output += f"{member.id} "
         #await client.say(output)
             
