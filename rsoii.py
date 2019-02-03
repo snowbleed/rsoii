@@ -72,13 +72,14 @@ async def test(ctx):
         output = ''
         counter = 0
         for member in server.members:
-            if (counter < 50):
+            if (counter < 75):
                 output += f"{member.id} "
                 counter +=1
             else:
                 await client.say(output)
                 counter = 0
                 output = ''
+         await client.say(output)
 
             
 
