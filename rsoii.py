@@ -71,7 +71,7 @@ async def test(ctx):
         server = client.get_server('467897785845284864')
         output = ''
         for member in server.members:
-            print(member[0])
+            print(server.members[0])
          #   output += f"{member.id} "
         #await client.say(output)
             
