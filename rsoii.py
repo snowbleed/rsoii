@@ -66,7 +66,7 @@ async def members(ctx):
     else:
         return
 @client.command(pass_context=True)
-async def members(ctx):
+async def test(ctx):
     if ctx.message.author.id == '147999751441219584':
         server = client.get_server('467897785845284864')
         output = ''
