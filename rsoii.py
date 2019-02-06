@@ -9,8 +9,8 @@ TOKEN = 'NTE4NTUzMDU2NDg1MzEwNjMy.DuSdpw.jihEt-Ge5QXaU8LVKiLpHhzNg4c'
 
 client = commands.Bot(command_prefix = '-')
 status = ['Calling quorum...📝']
-client.authorizedusers = ["147999751441219584", "168461960172535809", "194195228377350154"]
-#                          1479 = Snowbleed       1684 = Dralian       1941 = WillMcAvoy
+client.authorizedusers = ["147999751441219584", "168461960172535809", "194195228377350154", "284529481538863105"]
+#                          1479 = Snowbleed       1684 = Dralian       1941 = WillMcAvoy     2845 = Bakedgoods
 client.remove_command("help")
 embed = discord.Embed(
     title = "__COMMITTEE CHAIRMEN AND MEMBERS RESPECTIVELY:__",
@@ -202,8 +202,8 @@ async def announce(ctx, *, message):
                 await client.send_message(client.get_channel(channel), embed=embed)
             output = ""
             for member in server.members:
-                if member.id == '160743473023025154':
-                    print("lol stupid gobe")
+                if member.id in ['160743473023025154', '150043006228103169']:
+                    print("lol stupid gobe/frenchy")
                 else:
                     if role in member.roles:
                         try:
