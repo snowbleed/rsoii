@@ -121,7 +121,7 @@ async def bill(ctx, arg):
     server = client.get_server('467897785845284864')
     member = server.get_member(ctx.message.author.id)
     secretary = await client.get_user_info('497603192776032268') #Waffles
-    ppt = await client.get_user_info('147999751441219584') #Snowbleed
+    ppt = await client.get_user_info('284529481538863105') #Snowbleed
     role = discord.utils.get(server.roles, name='Senator')
     role1 = discord.utils.get(server.roles, name='Senate Minority Leader')
     role2 = discord.utils.get(server.roles, name='Senate Majority Leader')
