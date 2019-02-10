@@ -96,10 +96,11 @@ async def cmds():
     embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/447514535373438976/522865617838145547/P1BmSBO3_400x400.jpg')
     embed.add_field(name="-cmds", value="Display a list of commands.", inline = False)
     embed.add_field(name="-ping", value="Check if the bot is responding quickly and correctly.", inline = False)
-    embed.add_field(name="-delete", value="Deletes entered amount of messages. Must be more than 2 and less than 100 messages and the messages can not be over 2 weeks old. Format: `-delete <integer>`", inline = False)
-    embed.add_field(name="-announce", value="Make an announcement. Format: `-announce <text>`", inline = False)
-    embed.add_field(name="-bill", value="Sends a bill to be added to any of the four Senate committees respectively. Format: `-bill <link>`", inline = False)
-    embed.add_field(name="-samcmd", value="Allows Senators to nickname themselves to their party and state e.g. `BigOrrin [D-NC]`. Format: `-samcmd <party initial> <state acronym>`", inline = False)
+    embed.add_field(name="-delete", value="**ADMIN ONLY:** Deletes entered amount of messages. Must be more than 2 and less than 100 messages and the messages can not be over 2 weeks old. Format: `-delete <integer>`", inline = False)
+    embed.add_field(name="-announce", value="**SECSEN, PPT, VPOTUS ONLY:** Make an announcement which DMs all Senators. Format: `-announce <text>`", inline = False)
+    embed.add_field(name="-vote", value="**SENATORS ONLY:** Manually submit votes for any on-going vote in the [Internal Voting System](https://trello.com/b/V7I3qDey/fecc-internal-elections-administration). Format: `-vote`", inline = False)
+    embed.add_field(name="-bill", value="**SENATORS ONLY:** Sends a bill to be added to any of the four Senate committees respectively. Format: `-bill <link>`", inline = False)
+    embed.add_field(name="-party", value="**SENATORS ONLY:** Allows Senators to nickname themselves to their party and state e.g. `BigOrrin [D-NC]`. Format: `-party <party initial> <state acronym>`", inline = False)
     await client.say(embed=embed)
 @client.command()
 async def ping():
@@ -110,10 +111,7 @@ async def grr(ctx):
         await client.send_message(ctx.message.author, "What the fuck did you just fucking say about me, you little bitch? I’ll have you know I graduated top of my class in the Marine Security Guard Battalion, and I’ve been involved in numerous secret raids on Al-Quaeda, and I have over 300 confirmed kills. I am trained in gorilla warfare and I’m the top sniper in the entire US armed forces. You are nothing to me but just another target. I will wipe you the fuck out with precision the likes of which has never been seen before on this Earth, mark my fucking words. You think you can get away with saying that shit to me over the Internet? Think again, fucker. As we speak I am contacting my secret network of spies across the USA and your IP is being traced right now so you better prepare for the storm, maggot. The storm that wipes out the pathetic little thing you call your life. You’re fucking dead, kid. I can be anywhere, anytime, and I can kill you in over seven hundred ways, and that’s just with my bare hands. Not only am I extensively trained in unarmed combat, but I have access to the entire arsenal of the United States Marine Corps and I will use it to its full extent to wipe your miserable ass off the face of the continent, you little shit. If only you could have known what unholy retribution your little “clever” comment was about to bring down upon you, maybe you would have held your fucking tongue. But you couldn’t, you didn’t, and now you’re paying the price, you goddamn idiot. I will shit fury all over you and you will drown in it. You’re fucking dead, kiddo.")
     else:
          await client.send_message(ctx.message.author, "sorry bud, this command aint for u.")
-@client.command()
-async def leaves():
-    server = client.get_server('518282234608877578')
-    await client.leave_server(server)
+
 @client.command(pass_context=True)
 async def vote(ctx):
     server = client.get_server('467897785845284864')
@@ -202,7 +200,7 @@ async def bill(ctx, arg):
     else:
         await client.send_message(ctx.message.author, "To submit a bill you need to be a senator, if you have any questions or concerns please contact `snowbleed#7824`")
 @client.command(pass_context=True)
-async def samcmd(ctx, arg1, arg2):
+async def party(ctx, arg1, arg2):
     server = client.get_server('467897785845284864')
     member = server.get_member(ctx.message.author.id)
     role = discord.utils.get(server.roles, name='Senator')
