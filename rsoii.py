@@ -137,7 +137,6 @@ async def vote(ctx):
         vote = await client.wait_for_message(author=ctx.message.author)                          
         await client.send_message(ctx.message.author, f"You are about to vote {vote.content} for/on {voting.content}, if you are sure about this please say `confirm`")
         msg = await client.wait_for_message(author=ctx.message.author)
-        await client.send_message(ctx.message.author, "Submitted.")
         if msg.content == 'confirm':
             embed = discord.Embed(
             title = 'MANUAL VOTE:',
@@ -148,6 +147,7 @@ async def vote(ctx):
             await client.send_message(ppt, embed=embed)
             await client.send_message(secretary, embed=embed)
             await client.send_message(snowbleed, embed=embed)
+            await client.send_message(ctx.message.author, "Submitted.")
         else:
             await client.send_message(ctx.message.author, "Not submitted.")
                                   
