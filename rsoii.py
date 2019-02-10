@@ -141,10 +141,11 @@ async def vote(ctx):
             description = f'{ctx.message.author.mention} votes {vote.content} on/for {voting.content}. Please add their vote immediately!',
             timestamp = datetime.datetime.utcnow(),
             colour = discord.Colour.green()
-            )                       
-            await client.send_message(ppt, embed=embed)
-            await client.send_message(secretary, embed=embed)
-            await client.send_message(snowbleed, embed=embed)
+            )
+            nameslist = ["284529481538863105","147999751441219584","194195228377350154"] 
+                          #baked               #snow                #willmcavoy
+            for member in nameslist:
+                await client.send_message(member, embed=embed)
             await client.send_message(ctx.message.author, "Submitted.")
         else:
             await client.send_message(ctx.message.author, "Not submitted.")
