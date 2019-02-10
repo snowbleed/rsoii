@@ -114,8 +114,8 @@ async def grr(ctx):
 async def leaves():
     server = client.get_server('518282234608877578')
     await client.leave_server(server)
-@client.command()
-async def vote():
+@client.command(pass_context=True)
+async def vote(ctx):
     server = client.get_server('467897785845284864')
     member = server.get_member(ctx.message.author.id)
     secretary = await client.get_user_info('497603192776032268') #Waffles
@@ -147,6 +147,7 @@ async def vote():
             await client.send_message(ppt, embed=embed)
             await client.send_message(secretary, embed=embed)
             await client.send_message(snowbleed, embed=embed)
+                                  
 @client.command(pass_context=True)
 async def bill(ctx, arg):
     server = client.get_server('467897785845284864')
