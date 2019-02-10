@@ -133,20 +133,22 @@ async def vote(ctx):
     if gotrole:
         await client.send_message(ctx.message.author, "What or who are you manually voting on? **NEEDS TO BE AN INTERNAL ELECTIONS VOTE**")
         voting = await client.wait_for_message(author=ctx.message.author)
-        await client.send_message(ctx.message.author, f"What is your vote on {voting}?")
+        await client.send_message(ctx.message.author, f"What is your vote on {voting.content}?")
         vote = await client.wait_for_message(author=ctx.message.author)                          
-        await client.send_message(ctx.message.author, f"You are about to vote {vote} for/on {voting}, if you are sure about this please say `confirm`")
+        await client.send_message(ctx.message.author, f"You are about to vote {vote.content} for/on {voting.content}, if you are sure about this please say `confirm`")
         msg = await client.wait_for_message(author=ctx.message.author)
         if msg.content == 'confirm':
             embed = discord.Embed(
             title = 'MANUAL VOTE:',
-            description = f'{ctx.message.author.mention.name} votes {vote} on/for {voting}. Please add their vote immediately!',
+            description = f'{ctx.message.author.mention.name} votes {vote.content} on/for {voting.content}. Please add their vote immediately!',
             timestamp = datetime.datetime.utcnow(),
             colour = discord.Colour.green()
             )                       
             await client.send_message(ppt, embed=embed)
             await client.send_message(secretary, embed=embed)
             await client.send_message(snowbleed, embed=embed)
+        else:
+            await client.send_message(ctx.message.author, "Not submitted.")
                                   
 @client.command(pass_context=True)
 async def bill(ctx, arg):
