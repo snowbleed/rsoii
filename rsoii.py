@@ -9,6 +9,8 @@ TOKEN = 'NTE4NTUzMDU2NDg1MzEwNjMy.DuSdpw.jihEt-Ge5QXaU8LVKiLpHhzNg4c'
 
 client = commands.Bot(command_prefix = '-')
 status = ['Calling quorum...📝']
+client.nameslist = ["284529481538863105","147999751441219584","194195228377350154"] 
+#                    baked                snow                  willmcavoy
 client.authorizedusers = ["147999751441219584", "168461960172535809", "194195228377350154", "284529481538863105"]
 #                          1479 = Snowbleed       1684 = Dralian       1941 = WillMcAvoy     2845 = Bakedgoods
 client.remove_command("help")
@@ -142,10 +144,8 @@ async def vote(ctx):
             timestamp = datetime.datetime.utcnow(),
             colour = discord.Colour.green()
             )
-            nameslist = ["284529481538863105","147999751441219584","194195228377350154"] 
-                          #baked               #snow                #willmcavoy
-            for member in nameslist:
-                await client.send_message(member, embed=embed)
+            for name in client.nameslist:
+                await client.send_message(await client.get_user_info(name), embed=embed)
             await client.send_message(ctx.message.author, "Submitted.")
         else:
             await client.send_message(ctx.message.author, "Not submitted.")
@@ -181,7 +181,7 @@ async def bill(ctx, arg):
             committee = "RULES COMMITTEE"
             cmtetrello = "g222veai"
         else:
-            await client.send_message(ctx.message.author, "You need to choose a committee! Command has been reset, use `-bill` to resubmit.")
+            await client.send_message(ctx.message.author, "You need to choose a committee! Command has been reset, use `-bill <link>` to resubmit.")
             return
         await client.send_message(ctx.message.author, "You are about to submit a bill, if you are sure about this please say `confirm`")
         msg = await client.wait_for_message(author=ctx.message.author)
@@ -194,8 +194,8 @@ async def bill(ctx, arg):
             )
             embed.set_footer(text='senate bot')
             embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/447514535373438976/522865617838145547/P1BmSBO3_400x400.jpg')
-            await client.send_message(ppt, embed=embed)
-            await client.send_message(secretary, embed=embed)
+            for name in client.nameslist:
+                await client.send_message(await client.get_user_info(name), embed=embed)
             await client.send_message(ctx.message.author, "Your bill has been submitted, here's how it looks!")
             await client.send_message(ctx.message.author, embed=embed)
     else:
@@ -236,7 +236,7 @@ async def announce(ctx, *, message):
                 await client.send_message(client.get_channel(channel), embed=embed)
             output = ""
             for member in server.members:
-                if member.id in ['160743473023025154', '150043006228103169']:
+                if member.id in ['150043006228103169']:
                     print("lol stupid gobe/frenchy")
                 else:
                     if role in member.roles:
