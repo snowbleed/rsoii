@@ -131,9 +131,9 @@ async def vote(ctx):
     rolelist = [role, role1, role2, role3, role4, role5, role6]
     gotrole = any(elem in rolelist for elem in member.roles)
     if gotrole:
-        await client.send_message(ctx.message.author, "What or who are you manually voting on? **NEEDS TO BE AN INTERNAL ELECTIONS VOTE**"
+        await client.send_message(ctx.message.author, "What or who are you manually voting on? **NEEDS TO BE AN INTERNAL ELECTIONS VOTE**")
         voting = await client.wait_for_message(author=ctx.message.author)
-        await client.send_message(ctx.message.author, f"What is your vote on {voting}?"
+        await client.send_message(ctx.message.author, f"What is your vote on {voting}?")
         vote = await client.wait_for_message(author=ctx.message.author)                          
         await client.send_message(ctx.message.author, f"You are about to vote {vote} for/on {voting}, if you are sure about this please say `confirm`")
         msg = await client.wait_for_message(author=ctx.message.author)
