@@ -135,7 +135,7 @@ async def vote(ctx):
         vote = await client.wait_for_message(author=ctx.message.author)                          
         await client.send_message(ctx.message.author, f"You are about to vote {vote.content} for/on {voting.content}, if you are sure about this please say `confirm`")
         msg = await client.wait_for_message(author=ctx.message.author)
-        if msg.content == 'confirm':
+        if msg.content.lower() == 'confirm':
             embed = discord.Embed(
             title = 'MANUAL VOTE:',
             description = f'{ctx.message.author.mention} votes {vote.content} on/for {voting.content}. Please add their vote immediately!',
@@ -182,9 +182,9 @@ async def bill(ctx, arg):
         else:
             await client.send_message(ctx.message.author, "You need to choose a committee! Command has been reset, use `-bill` to resubmit.")
             return
-        await client.send_message(ctx.message.author, "You are about to submit a bill, if you are sure about this please say `-confirm`")
+        await client.send_message(ctx.message.author, "You are about to submit a bill, if you are sure about this please say `confirm`")
         msg = await client.wait_for_message(author=ctx.message.author)
-        if msg.content == '-confirm':
+        if msg.content.lower() == 'confirm':
             embed = discord.Embed(
             title = 'Bill needs to be added to the: ',
             description = '**[' + committee + '](https://trello.com/b/' + cmtetrello + '/cmte)**\n\n' + arg + '\nSubmitted by: ' + ctx.message.author.mention,
@@ -220,9 +220,9 @@ async def announce(ctx, *, message):
         server = client.get_server('467897785845284864')
         channel = server.get_channel('467900156004663306')
         role = discord.utils.get(server.roles, name='Senator') 
-        await client.say('You are about to make an announcement, if you are sure please say -confirm')
+        await client.say('You are about to make an announcement, if you are sure please say confirm')
         msg = await client.wait_for_message(author=ctx.message.author)
-        if msg.content == '-confirm':  
+        if msg.content.lower() == 'confirm':  
             embed = discord.Embed(
             timestamp = datetime.datetime.utcnow(),
             colour = discord.Colour.blue()
