@@ -114,8 +114,39 @@ async def grr(ctx):
 async def leaves():
     server = client.get_server('518282234608877578')
     await client.leave_server(server)
-    
-    
+@client.command()
+async def vote():
+    server = client.get_server('467897785845284864')
+    member = server.get_member(ctx.message.author.id)
+    secretary = await client.get_user_info('497603192776032268') #Waffles
+    ppt = await client.get_user_info('284529481538863105') #baked
+    snowbleed = await client.get_user_info('147999751441219584') #snowbleed
+    role = discord.utils.get(server.roles, name='Senator')
+    role1 = discord.utils.get(server.roles, name='Senate Minority Leader')
+    role2 = discord.utils.get(server.roles, name='Senate Majority Leader')
+    role3 = discord.utils.get(server.roles, name='Secretary of the Senate')
+    role4 = discord.utils.get(server.roles, name='Acting PPT')
+    role5 = discord.utils.get(server.roles, name='President Pro-Tempore')
+    role6 = discord.utils.get(server.roles, name='President of the Senate') 
+    rolelist = [role, role1, role2, role3, role4, role5, role6]
+    gotrole = any(elem in rolelist for elem in member.roles)
+    if gotrole:
+        await client.send_message(ctx.message.author, "What or who are you manually voting on? **NEEDS TO BE AN INTERNAL ELECTIONS VOTE**"
+        voting = await client.wait_for_message(author=ctx.message.author)
+        await client.send_message(ctx.message.author, f"What is your vote on {voting}?"
+        vote = await client.wait_for_message(author=ctx.message.author)                          
+        await client.send_message(ctx.message.author, f"You are about to vote {vote} for/on {voting}, if you are sure about this please say `confirm`")
+        msg = await client.wait_for_message(author=ctx.message.author)
+        if msg.content == 'confirm':
+            embed = discord.Embed(
+            title = 'MANUAL VOTE:',
+            description = f'{ctx.message.author.mention.name} votes {vote} on/for {voting}. Please add their vote immediately!',
+            timestamp = datetime.datetime.utcnow(),
+            colour = discord.Colour.green()
+            )                       
+            await client.send_message(ppt, embed=embed)
+            await client.send_message(secretary, embed=embed)
+            await client.send_message(snowbleed, embed=embed)
 @client.command(pass_context=True)
 async def bill(ctx, arg):
     server = client.get_server('467897785845284864')
