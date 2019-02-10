@@ -137,10 +137,11 @@ async def vote(ctx):
         vote = await client.wait_for_message(author=ctx.message.author)                          
         await client.send_message(ctx.message.author, f"You are about to vote {vote.content} for/on {voting.content}, if you are sure about this please say `confirm`")
         msg = await client.wait_for_message(author=ctx.message.author)
+        await client.send_message(ctx.message.author, "Submitted.")
         if msg.content == 'confirm':
             embed = discord.Embed(
             title = 'MANUAL VOTE:',
-            description = f'{ctx.message.author.mention.name} votes {vote.content} on/for {voting.content}. Please add their vote immediately!',
+            description = f'{ctx.message.author.mention} votes {vote.content} on/for {voting.content}. Please add their vote immediately!',
             timestamp = datetime.datetime.utcnow(),
             colour = discord.Colour.green()
             )                       
