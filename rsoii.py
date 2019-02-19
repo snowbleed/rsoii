@@ -11,8 +11,8 @@ client = commands.Bot(command_prefix = '-')
 status = ['Calling quorum...📝']
 client.nameslist = ["284529481538863105","147999751441219584","194195228377350154"] 
 #                    baked                snow                  willmcavoy
-client.authorizedusers = ["147999751441219584", "168461960172535809", "194195228377350154", "284529481538863105"]
-#                          1479 = Snowbleed       1684 = Dralian       1941 = WillMcAvoy     2845 = Bakedgoods
+client.authorizedusers = ["147999751441219584", "168461960172535809", "159101090044968960"]
+#                          1479 = Snowbleed       1684 = Dralian       1591 = Lacryma     
 client.remove_command("help")
 embed = discord.Embed(
     title = "__COMMITTEE CHAIRMEN AND MEMBERS RESPECTIVELY:__",
@@ -147,7 +147,11 @@ async def vote(ctx):
             colour = discord.Colour.green()
             )
             for name in client.nameslist:
-                await client.send_message(await client.get_user_info(name), embed=embed)
+                member = await client.get_user_info(name)
+                try:
+                    await client.send_message(member, embed=embed)
+                except:
+                    print(f"Failed to send vote to: {member.mention}"
             await client.send_message(ctx.message.author, "Submitted.")
         else:
             await client.send_message(ctx.message.author, "Not submitted.")
