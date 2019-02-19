@@ -151,7 +151,7 @@ async def vote(ctx):
                 try:
                     await client.send_message(member, embed=embed)
                 except:
-                    print(f"Failed to send vote to: {member.mention}")
+                    print(f"Failed to send vote to: {member.name}")
             await client.send_message(ctx.message.author, "Submitted.")
         else:
             await client.send_message(ctx.message.author, "Not submitted.")
