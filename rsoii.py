@@ -1,90 +1,22 @@
 import discord
 from discord.ext import commands
 import asyncio
-from itertools import cycle
 import time
 import datetime
 
 TOKEN = 'NTE4NTUzMDU2NDg1MzEwNjMy.DuSdpw.jihEt-Ge5QXaU8LVKiLpHhzNg4c'
 
 client = commands.Bot(command_prefix = '-')
-status = ['Calling quorum...📝']
-client.nameslist = ["159101090044968960","147999751441219584", "284529481538863105"] 
-#                    lacryma              snow                  baked
+client.nameslist = ["159101090044968960","147999751441219584", "441572675685711873"] 
+#                    lacryma              snow                  lydxia
 client.authorizedusers = ["147999751441219584", "168461960172535809", "159101090044968960", "284529481538863105"]
 #                          1479 = Snowbleed       1684 = Dralian       1591 = Lacryma        2845 = baked
 client.remove_command("help")
-embed = discord.Embed(
-    title = "__COMMITTEE CHAIRMEN AND MEMBERS RESPECTIVELY:__",
-    timestamp = datetime.datetime.utcnow(),
-    colour = discord.Colour.red()
-    )
-embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/447514535373438976/522865617838145547/P1BmSBO3_400x400.jpg')
-embed.add_field(name="Judicary Committee", value="Chair: Sam4219\nMembers: Snowbleed, Sufferpoop, Castelliano & Coolvibez\n[TRELLO HERE](https://trello.com/b/q0AQUFqJ/senate-judiciary-committee)", inline = False)
-embed.add_field(name="────────────────────\nHomeland Security Committee", value="Chair: Isner\nMembers: Coolvibez, chewdog10, SirSamuelSmith & Snowbleed\n[TRELLO HERE](https://trello.com/b/GdWLqexD/senate-homeland-security-committee)", inline = False)
-embed.add_field(name="────────────────────\nArmed Services Committee", value="Chair: Castelliano\nMembers: SirSamuelSmith, Lacryma, Snowbleed & Sam4219\n[TRELLO HERE](https://trello.com/b/VqYyiZK4/senate-armed-services-committee)", inline = False)
-embed.add_field(name="────────────────────\nRules Committee", value="Chair: Snowbleed\nMembers: Sam4219, Isner, Sufferpoop & SirSamuelSmith\n[TRELLO HERE](https://trello.com/b/g222veai/senate-rules-committee)", inline = False)
-client.cmteembed = embed
-
-async def change_status():
-    await client.wait_until_ready()
-    msgs = cycle(status)
-    while not client.is_closed:
-        current_status = next(msgs)
-        await client.change_presence(game=discord.Game(name=current_status))
-        await asyncio.sleep(5)
 
 @client.event
 async def on_ready():
     print("Bot is online")
-
-@client.event
-async def on_member_join(member):
-    if member.server.id == '524368324897800232':
-        role = discord.utils.get(member.server.roles, name='Americans')
-        await client.add_roles(member, role)
-    else:
-        print("User joined any other fucking discord")
-
-@client.command(pass_context=True)
-async def committees(ctx):
-    if ctx.message.author.id == '147999751441219584':
-        await client.say(embed=client.cmteembed)
-    else:
-        return
-
-@client.command(pass_context=True)
-async def members(ctx):
-    if ctx.message.author.id == '147999751441219584':
-        server = client.get_server('467897785845284864')
-        role = discord.utils.get(server.roles, name='Senator')
-        x = 1
-        output = ''
-        for member in server.members:
-            if role in member.roles:
-                output += f"Senator # {str(x)}, {member.mention}\n"
-                x += 1
-        await client.say(output)
-    else:
-        return
-@client.command(pass_context=True)
-async def test(ctx):
-    if ctx.message.author.id == '147999751441219584':
-        server = client.get_server('467897785845284864')
-        output = ''
-        counter = 0
-        for member in server.members:
-            if (counter < 75):
-                output += f"{member.id} "
-                counter += 1
-            else:
-                await client.say(output)
-                counter = 0
-                output = ''
-                output += f"{member.id} "
-                counter += 1
-        await client.say(output)
-            
+    await client.change_presence(game=discord.Game(name='Calling quorum...📝'))´            
 
 @client.command()
 async def cmds():
@@ -206,6 +138,7 @@ async def bill(ctx, arg):
             await client.send_message(ctx.message.author, embed=embed)
     else:
         await client.send_message(ctx.message.author, "To submit a bill you need to be a senator, if you have any questions or concerns please contact `snowbleed#7824`")
+        
 @client.command(pass_context=True)
 async def party(ctx, arg1, arg2):
     server = client.get_server('467897785845284864')
@@ -304,5 +237,4 @@ async def displayembed():
 
     await client.say(embed=embed)
 """
-client.loop.create_task(change_status())
 client.run(TOKEN)
