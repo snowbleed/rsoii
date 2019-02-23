@@ -16,7 +16,7 @@ client.remove_command("help")
 @client.event
 async def on_ready():
     print("Bot is online")
-    await client.change_presence(game=discord.Game(name='Calling quorum...📝'))´            
+    await client.change_presence(game=discord.Game(name='Calling quorum...📝'))            
 
 @client.command()
 async def cmds():
