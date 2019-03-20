@@ -7,8 +7,8 @@ import datetime
 TOKEN = 'NTE4NTUzMDU2NDg1MzEwNjMy.DuSdpw.jihEt-Ge5QXaU8LVKiLpHhzNg4c'
 
 client = commands.Bot(command_prefix = '-')
-client.nameslist = ["159101090044968960","147999751441219584", "441572675685711873"] 
-#                    lacryma              snow                  lydxia
+client.nameslist = ["159101090044968960","147999751441219584"]
+#                    lacryma              snow                  
 client.authorizedusers = ["147999751441219584", "168461960172535809", "159101090044968960", "284529481538863105"]
 #                          1479 = Snowbleed       1684 = Dralian       1591 = Lacryma        2845 = baked
 client.remove_command("help")
