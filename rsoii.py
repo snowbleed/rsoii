@@ -7,10 +7,10 @@ import datetime
 TOKEN = 'NTE4NTUzMDU2NDg1MzEwNjMy.DuSdpw.jihEt-Ge5QXaU8LVKiLpHhzNg4c'
 
 client = commands.Bot(command_prefix = '-')
-client.nameslist = ["159101090044968960","147999751441219584"]
-#                    lacryma              snow                  
-client.authorizedusers = ["147999751441219584", "425028097159462913", "159101090044968960", "284529481538863105"]
-#                          1479 = Snowbleed      4250 = AcidRaps       1591 = Lacryma        2845 = baked
+client.nameslist = ["123553364750499840","147999751441219584"]
+#                    ronnie               snow                  
+client.authorizedusers = ["147999751441219584", "425028097159462913", "123553364750499840", "284529481538863105"]
+#                          1479 = Snowbleed      4250 = AcidRaps       1235 = ronnie         2845 = baked
 client.remove_command("help")
 
 @client.event
