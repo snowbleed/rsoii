@@ -4,7 +4,7 @@ import asyncio
 import time
 import datetime
 
-TOKEN = 'NTE4NTUzMDU2NDg1MzEwNjMy.DuSdpw.jihEt-Ge5QXaU8LVKiLpHhzNg4c'
+TOKEN = "you thought u gon' snatch my token😤"
 
 client = commands.Bot(command_prefix = '-')
 client.nameslist = ["399326498575613963","147999751441219584"]
