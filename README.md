@@ -1,2 +1,5 @@
 # Senate Bot
-Literally ass.
+## With features like:
+- Being super laggy;
+- Literally ass and;
+- No file write possibility!
